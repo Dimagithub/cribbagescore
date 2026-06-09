@@ -74,12 +74,14 @@
   [data-theme="light"] .f-2 .sbtn.minus,
   [data-theme="light"] .h-step.p2row .hsbtn.minus{color:#3a78ad;}
   *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
-  html,body{height:100%;overflow:hidden;max-width:100%;}
+  html{height:100%;overflow:hidden;display:flex;justify-content:center;background:#0a0c10;}
+  body{height:100%;overflow:hidden;max-width:430px;width:100%;}
   body{
     font-family:'Bitter',serif;
     background:radial-gradient(circle at 50% -10%, var(--bg-top) 0%, var(--bg) 50%, var(--bg2) 100%);
-    color:var(--text);height:100vh;height:100dvh;display:flex;flex-direction:column;
+    color:var(--text);height:100vh;height:100dvh;display:flex;flex-direction:column;position:relative;
     padding:env(safe-area-inset-top) env(safe-area-inset-right) 0 env(safe-area-inset-left);
+    box-shadow:0 0 60px rgba(0,0,0,.9);
   }
   /* ---- header ---- */
   header{display:flex;align-items:center;justify-content:space-between;padding:6px 12px 2px;}
@@ -175,7 +177,7 @@
   footer .sec:active{background:var(--btn);}
 
   /* ---- overlays ---- */
-  .overlay{position:fixed;inset:0;background:var(--bg);display:none;flex-direction:column;
+  .overlay{position:absolute;inset:0;background:var(--bg);display:none;flex-direction:column;
     align-items:center;justify-content:flex-start;text-align:center;padding:22px;z-index:60;overflow-y:auto;}
   .overlay.show{display:flex;}
   .overlay>*{flex-shrink:0;}
@@ -206,9 +208,9 @@
   #exportText{width:100%;max-width:360px;height:44vh;background:var(--inset);border:1px solid var(--line);
     border-radius:12px;color:var(--cream);font-family:'Oswald',sans-serif;font-size:.82rem;line-height:1.5;padding:13px;white-space:pre;}
   .winbig{font-size:1.05rem;color:var(--gold);font-family:'Oswald',sans-serif;letter-spacing:.05em;}
-  canvas#confetti{position:fixed;inset:0;pointer-events:none;z-index:70;display:none;}
+  canvas#confetti{position:absolute;inset:0;pointer-events:none;z-index:70;display:none;}
   /* human gate */
-  #gate{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;
+  #gate{position:absolute;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;
     background:radial-gradient(circle at 50% 30%, var(--bg-top), var(--bg) 60%, var(--bg2));}
   #gate.hidden{display:none;}
   .gate-card{text-align:center;}
@@ -313,7 +315,7 @@
     font-family:'Oswald',sans-serif;font-weight:700;font-size:1.3rem;color:var(--gold);z-index:5;
     animation:floatup .7s ease-out forwards;text-shadow:0 1px 4px rgba(0,0,0,.5);}
   /* round-advance banner */
-  #roundBanner{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);z-index:45;
+  #roundBanner{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:45;
     pointer-events:none;display:none;font-family:'Oswald',sans-serif;font-weight:700;
     text-transform:uppercase;letter-spacing:.08em;color:var(--on-gold);background:var(--gold);
     padding:16px 34px;border-radius:16px;font-size:1.8rem;box-shadow:0 10px 40px rgba(0,0,0,.5);}
@@ -514,7 +516,33 @@
         <div class="help-h">&#9881; Settings</div>
         <p><span class="help-tag">&#9790;</span> toggles light/dark theme. <span class="help-tag">&#128266;</span> mutes sound, speech, and vibration. Both are remembered.</p>
       </div>
+      <div style="padding:12px 4px 4px;"><div style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.12em;font-size:.75rem;color:var(--text);opacity:.5;border-top:1px solid var(--line);padding-top:10px;">Cribbage Rules</div></div>
+      <div class="help-sec">
+        <div class="help-h">&#127918; Objective &amp; Deal</div>
+        <p>First to <b>121 pts</b> wins (61 for short game). Deal 6 cards each; each discards 2 to the <b>Crib</b>. Cut the deck for a <b>starter card</b> — if it's a Jack the dealer scores 2 (<b>Heels</b>).</p>
+      </div>
+      <div class="help-sec">
+        <div class="help-h">&#9654; The Play (Pegging)</div>
+        <p>Players alternate playing cards, calling out the running total (max 31). Can't play without exceeding 31? Say <b>Go</b> — opponent scores 1. Hitting exactly <b>31</b> scores 2. Last card after all plays scores 1 (or 2 for 31).</p>
+      </div>
+      <div class="help-sec">
+        <div class="help-h">&#128290; Pegging Scores</div>
+        <p><b>15</b> (total = 15): 2 &nbsp;&#183;&nbsp; <b>Pair</b>: 2 &nbsp;&#183;&nbsp; <b>3-of-a-kind</b>: 6 &nbsp;&#183;&nbsp; <b>4-of-a-kind</b>: 12<br><b>Run</b> of 3+ consecutive: 1 pt/card &nbsp;&#183;&nbsp; <b>Go</b>: 1 &nbsp;&#183;&nbsp; <b>Exact 31</b>: 2</p>
+      </div>
+      <div class="help-sec">
+        <div class="help-h">&#128203; Counting Hands</div>
+        <p>Non-dealer counts first, then dealer's hand, then Crib (dealer only). Each hand scored with the starter. Face cards = 10.</p>
+      </div>
+      <div class="help-sec">
+        <div class="help-h">&#128202; Hand Scoring</div>
+        <p><b>15s</b> (any combo = 15): 2 pts each<br><b>Pair</b>: 2 &nbsp;&#183;&nbsp; <b>3-of-a-kind</b>: 6 &nbsp;&#183;&nbsp; <b>4-of-a-kind</b>: 12<br><b>Run</b> of 3+ consecutive: 1 pt/card<br><b>Flush</b> (4 same suit in hand): 4 pts; all 5 with starter: 5 pts<br><b>Nobs</b> (J matching starter's suit): 1 pt &nbsp;&#183;&nbsp; <b>Max hand</b>: 29 pts</p>
+      </div>
+      <div class="help-sec">
+        <div class="help-h">&#128128; Skunk</div>
+        <p>121-pt game: loser below 91 = <b>Skunk</b>. Below 61 = <b>Double Skunk</b>.</p>
+      </div>
     </div>
+    <a href="https://telling-stream-c22.notion.site/37a5613011df80049f28fb4665d4a8b4?pvs=105" target="_blank" rel="noopener" class="ghost" style="text-decoration:none;display:inline-block;margin-top:14px;">&#128394; Send Feedback</a>
     <button class="go" onclick="closeHelp()">Got it</button>
   </div>
 
