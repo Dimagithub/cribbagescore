@@ -226,6 +226,12 @@
     opacity:.6;cursor:pointer;font-family:'Oswald',sans-serif;text-transform:uppercase;
     letter-spacing:.1em;font-size:.78rem;padding:4px 2px;}
   .gate-link:active{opacity:1;}
+  /* video overlay */
+  #videoOv{background:#000;}
+  #videoOv video{width:100%;height:100%;object-fit:contain;display:block;}
+  #videoClose{position:absolute;top:14px;right:14px;z-index:5;background:rgba(0,0,0,.55);
+    border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:50%;width:36px;height:36px;
+    font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;}
   /* install guide */
   .inst-panel{width:100%;max-width:380px;}
   .inst-choices{display:flex;gap:12px;margin:16px 0 8px;width:100%;}
@@ -563,9 +569,11 @@
         <p>121-pt game: loser below 91 = <b>Skunk</b>. Below 61 = <b>Double Skunk</b>.</p>
       </div>
     </div>
-    <a href="https://telling-stream-c22.notion.site/37a5613011df80049f28fb4665d4a8b4?pvs=105" target="_blank" rel="noopener" class="ghost" style="text-decoration:none;display:inline-block;margin-top:14px;">&#128394; Send Feedback</a>
+    <button class="ghost" onclick="closeHelp();openVideo();" style="margin-top:14px;">&#9654; Watch Demo</button>
+    <a href="https://telling-stream-c22.notion.site/37a5613011df80049f28fb4665d4a8b4?pvs=105" target="_blank" rel="noopener" class="ghost" style="text-decoration:none;display:inline-block;margin-top:8px;">&#128394; Send Feedback</a>
     <button class="ghost" onclick="closeHelp();openInstall();" style="margin-top:8px;">&#128242; How to Install</button>
     <button class="go" onclick="closeHelp()">Got it</button>
+    <p style="margin-top:18px;font-size:.72rem;opacity:.35;letter-spacing:.06em;">&copy; 2026 Dima Semensky</p>
   </div>
 
   <!-- HISTORY -->
@@ -573,6 +581,12 @@
     <h2 style="font-size:1.4rem;">Round History</h2>
     <div id="historyBody" style="width:100%;max-width:380px;"></div>
     <button class="ghost" onclick="closeHistory()">Back</button>
+  </div>
+
+  <!-- VIDEO DEMO -->
+  <div class="overlay" id="videoOv" style="padding:0;justify-content:center;">
+    <button id="videoClose" onclick="closeVideo()">&#10005;</button>
+    <video id="demoVideo" src="./demo.mp4" playsinline controls preload="none"></video>
   </div>
 
   <!-- INSTALL GUIDE -->
@@ -652,8 +666,9 @@
       <div class="gate-title">Cribbage</div>
       <button class="gate-btn" id="gateBtn">Tap to start</button>
       <div class="gate-links">
+        <button class="gate-link" onclick="openVideo()">&#9654; Demo</button>
         <button class="gate-link" onclick="openHelp()">? Help</button>
-        <button class="gate-link" onclick="openInstall()">&#128242; Install App</button>
+        <button class="gate-link" onclick="openInstall()">&#128242; Install</button>
         <a href="https://telling-stream-c22.notion.site/37a5613011df80049f28fb4665d4a8b4?pvs=105" target="_blank" rel="noopener" class="gate-link" style="text-decoration:none;">&#128394; Feedback</a>
       </div>
     </div>
@@ -803,6 +818,17 @@
   }
   function closePop(){$('popMenu').classList.remove('show');$('popBackdrop').classList.remove('show');}
 
+  /* ---------- wake lock ---------- */
+  let wakeLock=null;
+  async function acquireWakeLock(){
+    if(!('wakeLock' in navigator)) return;
+    try{ wakeLock=await navigator.wakeLock.request('screen'); }catch(e){}
+  }
+  function releaseWakeLock(){ if(wakeLock){wakeLock.release();wakeLock=null;} }
+  document.addEventListener('visibilitychange',()=>{
+    if(document.visibilityState==='visible' && gatePassed && !winnerLocked) acquireWakeLock();
+  });
+
   /* ---------- audio ---------- */
   let actx, audioReady=false;
   function ac(){if(!actx)actx=new (window.AudioContext||window.webkitAudioContext)();return actx;}
@@ -930,6 +956,7 @@
       clearInputs();
     }
     winnerLocked=true;
+    releaseWakeLock();
     const p=pendingWinner;
     $('winConfirm').classList.remove('show');
     $('t'+p).classList.add('winner');
@@ -1357,10 +1384,13 @@
     if(e && e.target && e.target.closest && e.target.closest('.gate-link')) return; // help/install links stay on gate
     gatePassed=true;
     unlockAudio();
+    acquireWakeLock();
     const g=$('gate'); if(g) g.classList.add('hidden');
     document.removeEventListener('pointerdown',passGate,true);
     document.removeEventListener('touchend',passGate,true);
   }
+  function openVideo(){$('videoOv').classList.add('show');$('demoVideo').play();}
+  function closeVideo(){const v=$('demoVideo');v.pause();v.currentTime=0;$('videoOv').classList.remove('show');}
   function openInstall(){$('installOv').classList.add('show');instShow('os');}
   function closeInstall(){$('installOv').classList.remove('show');}
   function instShow(panel){
