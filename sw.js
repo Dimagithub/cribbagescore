@@ -1,5 +1,5 @@
 /* Cribbage Scorekeeper service worker */
-const CACHE = 'cribbage-v6';
+const CACHE = 'cribbage-v7';
 const ASSETS = [
   './',
   './index.html',

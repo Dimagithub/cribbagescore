@@ -803,6 +803,17 @@
   }
   function closePop(){$('popMenu').classList.remove('show');$('popBackdrop').classList.remove('show');}
 
+  /* ---------- wake lock ---------- */
+  let wakeLock=null;
+  async function acquireWakeLock(){
+    if(!('wakeLock' in navigator)) return;
+    try{ wakeLock=await navigator.wakeLock.request('screen'); }catch(e){}
+  }
+  function releaseWakeLock(){ if(wakeLock){wakeLock.release();wakeLock=null;} }
+  document.addEventListener('visibilitychange',()=>{
+    if(document.visibilityState==='visible' && gatePassed && !winnerLocked) acquireWakeLock();
+  });
+
   /* ---------- audio ---------- */
   let actx, audioReady=false;
   function ac(){if(!actx)actx=new (window.AudioContext||window.webkitAudioContext)();return actx;}
@@ -930,6 +941,7 @@
       clearInputs();
     }
     winnerLocked=true;
+    releaseWakeLock();
     const p=pendingWinner;
     $('winConfirm').classList.remove('show');
     $('t'+p).classList.add('winner');
@@ -1357,6 +1369,7 @@
     if(e && e.target && e.target.closest && e.target.closest('.gate-link')) return; // help/install links stay on gate
     gatePassed=true;
     unlockAudio();
+    acquireWakeLock();
     const g=$('gate'); if(g) g.classList.add('hidden');
     document.removeEventListener('pointerdown',passGate,true);
     document.removeEventListener('touchend',passGate,true);
