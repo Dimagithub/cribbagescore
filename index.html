@@ -595,6 +595,8 @@
     <div id="inst-os" class="inst-panel">
       <h2 style="font-size:1.4rem;">Install App</h2>
       <p>Add Cribbage to your home screen for quick access and offline play.</p>
+      <p id="offlineStatus" style="font-size:.85rem;opacity:.8;margin:6px 0 12px;"></p>
+      <button class="go" id="installNowBtn" onclick="installNow()" style="display:none;margin-bottom:14px;">&#11015; Install &amp; Play Offline</button>
       <div class="inst-choices">
         <button class="inst-choice" onclick="instSelectOS('android')">
           <span class="inst-choice-icon">&#129302;</span><span>Android</span>
@@ -1391,7 +1393,28 @@
   }
   function openVideo(){$('videoOv').classList.add('show');$('demoVideo').play();}
   function closeVideo(){const v=$('demoVideo');v.pause();v.currentTime=0;$('videoOv').classList.remove('show');}
-  function openInstall(){$('installOv').classList.add('show');instShow('os');}
+  let deferredInstall=null;
+  const isStandalone=()=>window.matchMedia('(display-mode: standalone)').matches||navigator.standalone===true;
+  window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredInstall=e;updateInstallUI();});
+  window.addEventListener('appinstalled',()=>{deferredInstall=null;updateInstallUI();});
+  function updateInstallUI(){
+    const btn=$('installNowBtn'), st=$('offlineStatus'), choices=document.querySelector('#inst-os .inst-choices');
+    if(!btn||!st) return;
+    const installed=isStandalone();
+    btn.style.display=(deferredInstall&&!installed)?'':'none';
+    if(choices) choices.style.display=(installed||deferredInstall)?'none':'';
+    const ready=!!(navigator.serviceWorker&&navigator.serviceWorker.controller);
+    st.innerHTML=installed?'&#10003; Installed &mdash; works fully offline.'
+      :ready?'&#10003; Offline-ready &mdash; this page is saved on your device and works without internet.'
+      :'Preparing offline copy&hellip; reload once if this stays here.';
+  }
+  async function installNow(){
+    if(!deferredInstall) return;
+    deferredInstall.prompt();
+    try{await deferredInstall.userChoice;}catch(_){}
+    deferredInstall=null;updateInstallUI();
+  }
+  function openInstall(){updateInstallUI();$('installOv').classList.add('show');instShow('os');}
   function closeInstall(){$('installOv').classList.remove('show');}
   function instShow(panel){
     ['os','ios','android','ios-safari','ios-chrome'].forEach(p=>{
@@ -1423,6 +1446,8 @@
     window.addEventListener('load',()=>{
       navigator.serviceWorker.register('sw.js').catch(()=>{});
     });
+    navigator.serviceWorker.addEventListener('controllerchange',updateInstallUI);
+    navigator.serviceWorker.ready.then(updateInstallUI).catch(()=>{});
   }
 </script>
 </body>
