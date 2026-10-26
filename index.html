@@ -319,7 +319,7 @@
   .h-confirm:active{transform:scale(.98);}
   .h-confirm.done{background:var(--gold);color:#241a06;border-color:var(--gold);}
   .h-next:disabled{opacity:.4;background:var(--btn);color:var(--text);cursor:default;font-size:.78rem;letter-spacing:.05em;}
-  /* pressed state: bold gold fill + inset, held 1s */
+  /* pressed state: bold gold fill + inset, held briefly */
   .sbtn.pressed,.hsbtn.pressed{
     background:var(--gold)!important;
     color:var(--on-gold)!important;
@@ -754,10 +754,15 @@
 
   /* ---------- long-press popup ---------- */
   let lpTimer=null, lpFired=false;
+  // render() rebuilds the table buttons, so highlight the fresh button after the step, not the old one
+  function flashAfterRender(id,d){
+    const nb=document.querySelector('.hsbtn[data-id="'+id+'"][data-d="'+d+'"]');
+    if(nb){flash(nb);popEffect(nb,d);}
+  }
   function flash(btn){
     btn.classList.add('pressed');
     clearTimeout(btn._pressT);
-    btn._pressT=setTimeout(()=>btn.classList.remove('pressed'),1000);
+    btn._pressT=setTimeout(()=>btn.classList.remove('pressed'),450);
   }
   function popEffect(btn,d){
     // find the value display in the same cell/row as this button
@@ -1383,7 +1388,7 @@
       const end=e=>{clearTimeout(t); if(!fired){
         const owner=parseInt(id.slice(-1),10);
         if(owner===nonDealer && ndConfirmed){ ndConfirmed=false; }
-        flash(btn); step(id,d); popEffect(btn,d);
+        step(id,d); flashAfterRender(id,d);
       }};
       btn.addEventListener('touchstart',start,{passive:true});
       btn.addEventListener('touchend',e=>{e.preventDefault();end();});
