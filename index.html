@@ -835,6 +835,7 @@
   let actx, audioReady=false;
   function ac(){if(!actx)actx=new (window.AudioContext||window.webkitAudioContext)();return actx;}
   function unlockAudio(){
+    try{ if(navigator.audioSession) navigator.audioSession.type='playback'; }catch(e){} // play even with iPhone silent switch on
     try{const c=ac(); if(c.state==='suspended') c.resume();
       // play a near-silent blip to fully unlock on iOS
       const o=c.createOscillator(),g=c.createGain();
@@ -864,7 +865,20 @@
     if(n<=2){ chime([[freq,dur]]); }
     else { chime([[freq,dur],[freq+120,dur*.6]]); } // bigger jumps get a richer two-note
   }
-  function buzz(ms){ if(muted)return; try{ if(navigator.vibrate) navigator.vibrate(ms); }catch(e){} }
+  // iOS has no navigator.vibrate; toggling a hidden checkbox[switch] inside a tap gives a native haptic (iOS 17.4+)
+  let hapticLabel=null;
+  function iosHaptic(){
+    if(!hapticLabel){
+      hapticLabel=document.createElement('label');hapticLabel.setAttribute('aria-hidden','true');hapticLabel.style.display='none';
+      const i=document.createElement('input');i.type='checkbox';i.setAttribute('switch','');
+      hapticLabel.appendChild(i);document.head.appendChild(hapticLabel);
+    }
+    hapticLabel.click();
+  }
+  function buzz(ms){
+    if(muted)return;
+    try{ if(navigator.vibrate) navigator.vibrate(ms); else iosHaptic(); }catch(e){}
+  }
   function fanfare(){
     if(muted)return;
     try{const c=ac(); if(c.state==='suspended') c.resume();
@@ -1196,7 +1210,7 @@
   const NAME_KEY='cribbage_player_names';
   function loadSavedNames(){
     try{const raw=localStorage.getItem(NAME_KEY);if(raw){const o=JSON.parse(raw);
-      if(o&&o[1]&&o[2])return {1:o[1],2:o[2]};}}catch(e){}
+      if(o&&(o[1]||o[2]))return {1:o[1]||'Player 1',2:o[2]||'Player 2'};}}catch(e){}
     return null;
   }
   function saveNames(n){
@@ -1248,8 +1262,13 @@
     document.querySelectorAll('.dealsel button').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');};});
   document.querySelectorAll('.preset button').forEach(b=>{b.onclick=()=>{$('tgtInput').value=b.dataset.t;
     document.querySelectorAll('.preset button').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');};});
-  $('setNm1').addEventListener('input',()=>$('dealBtn1').textContent=$('setNm1').value||'Player 1');
-  $('setNm2').addEventListener('input',()=>$('dealBtn2').textContent=$('setNm2').value||'Player 2');
+  function onSetupNameInput(){
+    $('dealBtn1').textContent=$('setNm1').value||'Player 1';
+    $('dealBtn2').textContent=$('setNm2').value||'Player 2';
+    saveNames({1:$('setNm1').value.trim(),2:$('setNm2').value.trim()});
+  }
+  $('setNm1').addEventListener('input',onSetupNameInput);
+  $('setNm2').addEventListener('input',onSetupNameInput);
 
   /* ---------- tabletop view ---------- */
   const VIEW_KEY='cribbage_view';
