@@ -571,6 +571,8 @@
     </div>
     <button class="ghost" onclick="closeHelp();openVideo();" style="margin-top:14px;">&#9654; Watch Demo</button>
     <a href="https://telling-stream-c22.notion.site/37a5613011df80049f28fb4665d4a8b4?pvs=105" target="_blank" rel="noopener" class="ghost" style="text-decoration:none;display:inline-block;margin-top:8px;">&#128394; Send Feedback</a>
+    <button class="ghost" onclick="testFeedback()" style="margin-top:8px;">&#128276; Test sound &amp; haptic</button>
+    <p id="fbTestOut" style="font-size:.72rem;opacity:.7;margin:6px 0 0;word-break:break-word;"></p>
     <button class="ghost" onclick="closeHelp();openInstall();" style="margin-top:8px;">&#128242; How to Install</button>
     <button class="go" onclick="closeHelp()">Got it</button>
     <p style="margin-top:18px;font-size:.72rem;opacity:.35;letter-spacing:.06em;">&copy; 2026 Dima Semensky</p>
@@ -836,23 +838,28 @@
   function ac(){if(!actx)actx=new (window.AudioContext||window.webkitAudioContext)();return actx;}
   function unlockAudio(){
     try{ if(navigator.audioSession) navigator.audioSession.type='playback'; }catch(e){} // play even with iPhone silent switch on
-    try{const c=ac(); if(c.state==='suspended') c.resume();
-      // play a near-silent blip to fully unlock on iOS
-      const o=c.createOscillator(),g=c.createGain();
-      g.gain.value=0.0001;o.connect(g);g.connect(c.destination);
-      o.start();o.stop(c.currentTime+0.02);audioReady=true;
+    try{const c=ac(); if(c.state!=='running') c.resume();
+      const s=c.createBufferSource(); s.buffer=c.createBuffer(1,1,22050); s.connect(c.destination); s.start(0);
+      audioReady=true;
     }catch(e){}
+  }
+  // iOS only unlocks audio on touchend/click (not pointerdown) and may report 'interrupted' instead of 'suspended'
+  ['touchend','click'].forEach(ev=>document.addEventListener(ev,()=>{
+    try{ if(navigator.audioSession&&navigator.audioSession.type!=='playback') navigator.audioSession.type='playback';
+      const c=ac(); if(c.state!=='running') c.resume(); }catch(e){}
+  },true));
+  function audioGo(fn){
+    try{const c=ac(); if(c.state==='running'){fn(c);return;} c.resume().then(()=>fn(c)).catch(()=>{});}catch(e){}
   }
   function chime(seq){
     if(muted)return;
-    try{const c=ac();
-      if(c.state==='suspended') c.resume();
+    audioGo(c=>{
       let t=c.currentTime+0.01;
       seq.forEach(([f,d])=>{const o=c.createOscillator(),g=c.createGain();
         o.type='triangle';o.frequency.value=f;o.connect(g);g.connect(c.destination);
         g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.5,t+.01);
         g.gain.exponentialRampToValueAtTime(.001,t+d);o.start(t);o.stop(t+d);t+=d*.9;});
-    }catch(e){}
+    });
   }
   const dingNext=()=>chime([[660,.12],[880,.18]]);
   const tick=()=>chime([[700,.09]]);
@@ -869,9 +876,9 @@
   let hapticLabel=null;
   function iosHaptic(){
     if(!hapticLabel){
-      hapticLabel=document.createElement('label');hapticLabel.setAttribute('aria-hidden','true');hapticLabel.style.display='none';
+      hapticLabel=document.createElement('label');hapticLabel.setAttribute('aria-hidden','true');hapticLabel.style.cssText='position:fixed;left:-9999px;top:0;width:1px;height:1px;opacity:0;overflow:hidden;';
       const i=document.createElement('input');i.type='checkbox';i.setAttribute('switch','');
-      hapticLabel.appendChild(i);document.head.appendChild(hapticLabel);
+      hapticLabel.appendChild(i);document.body.appendChild(hapticLabel);
     }
     hapticLabel.click();
   }
@@ -881,7 +888,7 @@
   }
   function fanfare(){
     if(muted)return;
-    try{const c=ac(); if(c.state==='suspended') c.resume();
+    audioGo(c=>{
       let t=c.currentTime+0.02;
       // triumphant rising run, repeated, then a held chord
       const notes=[[523,.16],[659,.16],[784,.16],[1047,.22],[784,.12],[1047,.3],
@@ -900,7 +907,15 @@
         g.gain.setValueAtTime(0,chordT);g.gain.linearRampToValueAtTime(.22,chordT+.03);
         g.gain.exponentialRampToValueAtTime(.001,chordT+1.1);o.start(chordT);o.stop(chordT+1.1);
       });
-    }catch(e){}
+    });
+  }
+  function testFeedback(){
+    buzz(30); tickFor(2);
+    setTimeout(()=>{
+      const c=actx;
+      $('fbTestOut').textContent='audio: '+(c?c.state:'none')+' | silent-switch bypass: '+(navigator.audioSession?navigator.audioSession.type:'unsupported')
+        +' | haptic: '+(navigator.vibrate?'vibrate API':'iOS switch')+' | muted: '+muted;
+    },400);
   }
   function speak(text){
     if(muted||!('speechSynthesis'in window))return;
