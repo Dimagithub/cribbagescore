@@ -1,5 +1,5 @@
 /* Cribbage Scorekeeper service worker */
-const CACHE = 'cribbage-v9';
+const CACHE = 'cribbage-v14';
 const ASSETS = [
   './',
   './index.html',
@@ -30,6 +30,20 @@ self.addEventListener('fetch', (e) => {
   if (req.method !== 'GET') return;
   const url = new URL(req.url);
   if (url.origin !== self.location.origin) return; // ignore cross-origin
+
+  // Pages: network-first so updates show up immediately; cache is the offline fallback
+  if (req.mode === 'navigate' || url.pathname === '/' || url.pathname.endsWith('/index.html')) {
+    e.respondWith(
+      fetch(req).then((res) => {
+        if (res && res.status === 200 && res.type === 'basic') {
+          const copy = res.clone();
+          caches.open(CACHE).then((c) => c.put('./index.html', copy));
+        }
+        return res;
+      }).catch(() => caches.match('./index.html'))
+    );
+    return;
+  }
 
   e.respondWith(
     caches.match(req).then((cached) => {
