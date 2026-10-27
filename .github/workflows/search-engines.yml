@@ -1,0 +1,43 @@
+# Daily Google Search Console + Bing Webmaster check (tools/search_engines.py; setup in SEO.md "Search engine accounts").
+# Installed by the devcom-seo-webmaster skill. Key pages to inspect: .github/search-engines-pages.txt.
+# Resubmits the sitemap to both, submits a rotating slice of URLs to Bing, inspects key pages in Google and lists problems.
+# Problems open (or update) one issue "Search engine problems" and fail the run; a clean run closes that issue.
+# Secrets: GSC_SERVICE_ACCOUNT_JSON (Google), BING_API_KEY (Bing). A missing secret skips that engine.
+name: Search engines
+on:
+  schedule:
+    - cron: "17 15 * * *"  # daily
+  workflow_dispatch:
+permissions:
+  contents: read
+  issues: write
+concurrency: search-engines
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+      BING_API_KEY: ${{ secrets.BING_API_KEY }}
+      SITE_URL: https://www.cribbagescoring.com  # production URL, no trailing slash
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.13" }
+      - run: pip install google-auth==2.40.3 requests==2.32.4
+      - name: Check Google and Bing
+        run: python3 tools/search_engines.py --pages .github/search-engines-pages.txt --problems "$RUNNER_TEMP/problems.md"
+      - name: Open, update or close the problems issue
+        run: |
+          t="Search engine problems"
+          n="$(gh issue list --state open --search "$t in:title" --json number -q '.[0].number')"
+          if [ -s "$RUNNER_TEMP/problems.md" ]; then
+            body="The daily **Search engines** Action found these problems ($(date -u +%F); [run]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID)):
+
+          $(cat "$RUNNER_TEMP/problems.md")"
+            if [ -n "$n" ]; then gh issue edit "$n" --body "$body"; else gh issue create --title "$t" --body "$body"; fi
+            exit 1
+          elif [ -n "$n" ]; then
+            gh issue close "$n" --comment "Cleared: the $(date -u +%F) run found no problems."
+          fi

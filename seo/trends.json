@@ -1,0 +1,93 @@
+{
+ "cribbage score keeper": {
+  "mean": 0.1,
+  "anchor_mean": 35.3,
+  "ratio": 0.0,
+  "batch": 1
+ },
+ "cribbage scoring app": {
+  "mean": 0.0,
+  "anchor_mean": 35.3,
+  "ratio": 0.0,
+  "batch": 1
+ },
+ "cribbage counter app": {
+  "mean": 0.0,
+  "anchor_mean": 35.3,
+  "ratio": 0.0,
+  "batch": 1
+ },
+ "cribbage app": {
+  "mean": 3.0,
+  "anchor_mean": 35.3,
+  "ratio": 0.08,
+  "batch": 1
+ },
+ "cribbage scoreboard": {
+  "mean": 0.0,
+  "anchor_mean": 35.3,
+  "ratio": 0.0,
+  "batch": 2
+ },
+ "cribbage board app": {
+  "mean": 0.1,
+  "anchor_mean": 35.3,
+  "ratio": 0.0,
+  "batch": 2
+ },
+ "digital cribbage board": {
+  "mean": 0.0,
+  "anchor_mean": 35.3,
+  "ratio": 0.0,
+  "batch": 2
+ },
+ "cribbage scoring rules": {
+  "mean": 0.3,
+  "anchor_mean": 35.3,
+  "ratio": 0.01,
+  "batch": 2
+ },
+ "how to play cribbage": {
+  "mean": 19.5,
+  "anchor_mean": 35.3,
+  "ratio": 0.55,
+  "batch": 3
+ },
+ "cribbage scoring": {
+  "mean": 10.0,
+  "anchor_mean": 35.3,
+  "ratio": 0.28,
+  "batch": 3
+ },
+ "cribbage points": {
+  "mean": 22.0,
+  "anchor_mean": 35.3,
+  "ratio": 0.62,
+  "batch": 3
+ },
+ "cribbage skunk": {
+  "mean": 3.6,
+  "anchor_mean": 35.3,
+  "ratio": 0.1,
+  "batch": 3
+ },
+ "cribbage hand scoring": {
+  "mean": 0.2,
+  "anchor_mean": 35.3,
+  "ratio": 0.01,
+  "batch": 4
+ },
+ "cribbage hand calculator": {
+  "mean": 0.2,
+  "anchor_mean": 35.3,
+  "ratio": 0.0,
+  "batch": 4
+ },
+ "cribbage score counter": {
+  "mean": 0.0,
+  "anchor_mean": 35.3,
+  "ratio": 0.0,
+  "batch": 4
+ },
+ "_missing": []
+}
