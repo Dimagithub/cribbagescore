@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cribbage Scoring Rules: Points for Hands, Pegging and Skunks</title>
+<meta name="description" content="How cribbage scoring works: points for fifteens, pairs, runs, flushes and nobs, pegging scores, the 29 hand, and skunk and double skunk lines. With worked examples.">
+<link rel="canonical" href="https://www.cribbagescoring.com/cribbage-scoring">
+<meta name="theme-color" content="#14181f">
+<link rel="icon" href="/icon-192.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Cribbage Score Keeper">
+<meta property="og:title" content="Cribbage Scoring Rules: Points for Hands, Pegging and Skunks">
+<meta property="og:description" content="Fifteens, pairs, runs, flushes, nobs, pegging, the 29 hand and skunk lines, explained with worked examples.">
+<meta property="og:url" content="https://www.cribbagescoring.com/cribbage-scoring">
+<meta property="og:image" content="https://www.cribbagescoring.com/icon-512.png">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "What is the highest hand in cribbage?",
+     "acceptedAnswer": {"@type": "Answer", "text": "29 points. It is three 5s and a jack in your hand, with the jack matching the suit of the 5 turned up as the starter card. That is 16 points of fifteens, 12 for four of a kind and 1 for nobs."}},
+    {"@type": "Question", "name": "What is a skunk in cribbage?",
+     "acceptedAnswer": {"@type": "Answer", "text": "In a 121-point game, if the loser has fewer than 91 points when the winner reaches 121, the loser has been skunked. Fewer than 61 points is a double skunk. Some groups also play a triple skunk below 31 as a house rule."}},
+    {"@type": "Question", "name": "How many points is nobs worth?",
+     "acceptedAnswer": {"@type": "Answer", "text": "1 point. You score nobs when you hold the jack that matches the suit of the starter card, in your hand or in your crib."}},
+    {"@type": "Question", "name": "What is his heels in cribbage?",
+     "acceptedAnswer": {"@type": "Answer", "text": "If the starter card turned up after the cut is a jack, the dealer scores 2 points immediately. This is called his heels."}},
+    {"@type": "Question", "name": "Who gets the go point in cribbage?",
+     "acceptedAnswer": {"@type": "Answer", "text": "The player who plays the last card during pegging, before the count would go over 31, scores 1 point for go. A player who makes the count exactly 31 scores 2 points instead."}},
+    {"@type": "Question", "name": "How many points do you need to win cribbage?",
+     "acceptedAnswer": {"@type": "Answer", "text": "The standard game is played to 121 points. A shorter game is played to 61 points. The first player to reach the target wins immediately, even in the middle of counting a hand."}},
+    {"@type": "Question", "name": "How do you keep score in cribbage?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Traditionally by moving two pegs per player around a cribbage board. You can also use a cribbage score keeper app that adds up the points for each round and tracks the game total."}}
+  ]
+}
+</script>
+<style>
+:root{--bg:#14181f;--bg2:#0e1116;--text:#f4efe4;--muted:rgba(244,239,228,.7);--line:rgba(244,239,228,.14);--gold:#e8b34a;--on-gold:#241a06;--card:rgba(255,255,255,.04);}
+@media (prefers-color-scheme: light){:root{--bg:#f7f3ea;--bg2:#efe9db;--text:#241f14;--muted:rgba(36,31,20,.7);--line:rgba(36,31,20,.16);--gold:#b8801a;--on-gold:#fff;--card:rgba(0,0,0,.04);}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.6 Georgia,'Times New Roman',serif;}
+.wrap{max-width:720px;margin:0 auto;padding:20px 16px 56px;}
+nav{display:flex;flex-wrap:wrap;gap:6px 18px;font:600 .8rem/1.2 'Oswald','Arial Narrow',Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;margin-bottom:22px;}
+nav a{color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:2px;}
+nav a:hover,nav a[aria-current]{color:var(--gold);border-color:var(--gold);}
+h1{font:700 2rem/1.15 'Oswald','Arial Narrow',Arial,sans-serif;text-transform:uppercase;letter-spacing:.04em;color:var(--gold);margin:0 0 12px;}
+h2{font:600 1.35rem/1.2 'Oswald','Arial Narrow',Arial,sans-serif;text-transform:uppercase;letter-spacing:.05em;margin:34px 0 10px;scroll-margin-top:12px;}
+h3{font-size:1.05rem;margin:18px 0 4px;}
+p,li{color:var(--text)}
+a{color:var(--gold)}
+.facts{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:8px;padding:12px 16px;margin:18px 0;}
+.facts ul{margin:6px 0 0;padding-left:20px}
+.tw{overflow-x:auto;margin:10px 0}
+table{border-collapse:collapse;width:100%;font-size:.9rem}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--card);font:600 .8rem/1.2 'Oswald','Arial Narrow',Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.cta{display:block;text-align:center;background:var(--gold);color:var(--on-gold);font:700 1.1rem/1 'Oswald','Arial Narrow',Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-radius:12px;padding:16px;margin:30px 0 6px;}
+.small{font-size:.85rem;color:var(--muted)}
+details{border-top:1px solid var(--line);padding:10px 0}
+summary{cursor:pointer;font-weight:700}
+footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-size:.8rem;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav aria-label="Site">
+  <a href="/">Score keeper</a>
+  <a href="/how-to-play-cribbage">How to play</a>
+  <a href="/cribbage-scoring" aria-current="page">Scoring</a>
+</nav>
+
+<main>
+<h1>Cribbage Scoring</h1>
+<p>Cribbage points come from three places: card combinations in your hand and the crib (the <em>show</em>), pairs, runs and totals made while playing cards (<em>pegging</em>), and a couple of bonus points. This page lists every score and shows how to count a hand.</p>
+
+<div class="facts">
+  <strong>Key facts</strong>
+  <ul>
+    <li>Standard game: first to <strong>121</strong> points wins. A short game is played to 61.</li>
+    <li>Card values: ace = 1, number cards = face value, jack, queen and king = 10.</li>
+    <li>Highest possible hand: <strong>29</strong> points.</li>
+    <li>Skunk: loser has fewer than <strong>91</strong> points. Double skunk: fewer than <strong>61</strong>.</li>
+  </ul>
+</div>
+
+<h2 id="hands">Counting the hand (the show)</h2>
+<p>Each hand is four cards plus the shared starter card, so you count five cards. The same card can count in several combinations.</p>
+<div class="tw"><table>
+  <thead><tr><th>Combination</th><th>Points</th><th>Example</th></tr></thead>
+  <tbody>
+    <tr><td>Fifteen: any cards that add up to 15</td><td>2 per combination</td><td>5 + K, 7 + 8, or 2 + 3 + 10</td></tr>
+    <tr><td>Pair</td><td>2</td><td>6 + 6</td></tr>
+    <tr><td>Three of a kind</td><td>6</td><td>9 + 9 + 9</td></tr>
+    <tr><td>Four of a kind</td><td>12</td><td>7 + 7 + 7 + 7</td></tr>
+    <tr><td>Run: three or more cards in a row (ace is low; suits don't matter)</td><td>1 per card in the run</td><td>4-5-6 = 3, 4-5-6-7 = 4</td></tr>
+    <tr><td>Flush: four cards of one suit in your hand</td><td>4 (5 if the starter matches too)</td><td>Four hearts in hand</td></tr>
+    <tr><td>Nobs: the jack that matches the starter's suit</td><td>1</td><td>J&#9827; in hand, starter is a club</td></tr>
+  </tbody>
+</table></div>
+<p>In the <strong>crib</strong>, a flush counts only if all five cards (the four crib cards and the starter) are the same suit. Nobs counts in the crib too. If the starter itself is a jack, the dealer scores 2 points at once. This is called <strong>his heels</strong>.</p>
+
+<h3>Worked example: 14 points</h3>
+<p>Hand 4&#9827; 5&#9829; 6&#9830; 6&#9824;, starter K&#9829;.</p>
+<ul>
+  <li>Fifteens: 4 + 5 + 6 (using each 6) = 2 fifteens, plus 5 + K = 1 fifteen. That is 3 &times; 2 = <strong>6</strong>.</li>
+  <li>Pair: 6 + 6 = <strong>2</strong>.</li>
+  <li>Runs: 4-5-6 appears twice (once per 6) = 2 &times; 3 = <strong>6</strong>.</li>
+</ul>
+<p>Total: 6 + 2 + 6 = <strong>14</strong>.</p>
+
+<h3>The 29 hand</h3>
+<p>The best possible hand is three 5s and a jack in your hand, with the fourth 5 as the starter and the jack matching that 5's suit: J&#9827; 5&#9829; 5&#9824; 5&#9830; with a 5&#9827; starter.</p>
+<ul>
+  <li>Fifteens: the jack with each of the four 5s = 4 &times; 2 = 8, plus three 5s in each of 4 combinations = 4 &times; 2 = 8. That is <strong>16</strong>.</li>
+  <li>Four of a kind (the four 5s): <strong>12</strong>.</li>
+  <li>Nobs: <strong>1</strong>.</li>
+</ul>
+<p>Total: 16 + 12 + 1 = <strong>29</strong>. If the jack is the wrong suit it is a 28 hand.</p>
+
+<h2 id="pegging">Scoring during play (pegging)</h2>
+<p>Players take turns laying cards and announcing the running total, which may not go over 31. Points are scored by the player who makes each of these:</p>
+<div class="tw"><table>
+  <thead><tr><th>Event</th><th>Points</th></tr></thead>
+  <tbody>
+    <tr><td>Total reaches exactly 15</td><td>2</td></tr>
+    <tr><td>Total reaches exactly 31</td><td>2</td></tr>
+    <tr><td>Pair (same rank as the previous card)</td><td>2</td></tr>
+    <tr><td>Three of a kind (three of the same rank in a row)</td><td>6</td></tr>
+    <tr><td>Four of a kind (four of the same rank in a row)</td><td>12</td></tr>
+    <tr><td>Run of three or more cards in the last plays, in any order</td><td>1 per card in the run</td></tr>
+    <tr><td>Go: last card played before the count would pass 31</td><td>1</td></tr>
+  </tbody>
+</table></div>
+<p>Flushes and nobs are not scored during play.</p>
+
+<h2 id="skunk">Winning and skunks</h2>
+<p>The first player to reach 121 points wins the moment they get there, even in the middle of counting a hand. The player who is not the dealer counts first, so in a close race they can win before the dealer gets to count the hand and the crib.</p>
+<p>A <strong>skunk</strong> is a lopsided win. In a 121-point game, if the loser has fewer than <strong>91</strong> points when the winner reaches 121, the loser is skunked. Fewer than <strong>61</strong> points is a <strong>double skunk</strong>. Some groups add a triple skunk below 31 as a house rule. In some scoring formats a skunk counts as two wins and a double skunk as four, so check the rules you are playing under.</p>
+
+<h2 id="faq">Common questions</h2>
+<details><summary>What is the highest hand in cribbage?</summary><p>29 points: three 5s and a jack in your hand, with the jack matching the suit of the starter, which is the fourth 5.</p></details>
+<details><summary>What is a skunk in cribbage?</summary><p>A win where the loser finishes with fewer than 91 points in a 121-point game. A double skunk is fewer than 61.</p></details>
+<details><summary>How many points is nobs worth?</summary><p>1 point, for holding the jack that matches the starter's suit, in the hand or the crib.</p></details>
+<details><summary>What is his heels?</summary><p>If the starter card is a jack, the dealer scores 2 points immediately.</p></details>
+<details><summary>Who gets the go point?</summary><p>The player who plays the last card before the count would pass 31 scores 1 point. Making exactly 31 scores 2 points instead.</p></details>
+<details><summary>How many points do you need to win?</summary><p>121 in the standard game, 61 in the short game.</p></details>
+<details><summary>How do you keep score?</summary><p>On a cribbage board with two pegs per player, or with a score keeper app that adds up each round for you.</p></details>
+
+<a class="cta" href="/">Open the free cribbage score keeper</a>
+<p class="small" style="text-align:center">No ads, no sign-up, works offline once loaded. It detects skunks and double skunks for you.</p>
+
+<p class="small">These rules follow standard American Cribbage Congress play; house rules vary, so agree on them before you start. For the official rules see the <a href="https://www.cribbage.org/NewSite/about/CribbageBasics.pdf" rel="noopener">American Cribbage Congress rules</a>. New to the game? Start with <a href="/how-to-play-cribbage">how to play cribbage</a>.</p>
+</main>
+
+<footer>&copy; 2026 Dima Semensky &middot; <a href="/">Cribbage Score Keeper</a></footer>
+</div>
+</body>
+</html>
