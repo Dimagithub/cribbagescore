@@ -1,0 +1,15 @@
+# Cribbage Score Keeper
+
+> A free cribbage score keeper web app for two players or two teams. No ads, no sign-up, works offline, and installable on iPhone and Android. Scores stay on the user's device.
+
+## App
+- [Cribbage Score Keeper](https://www.cribbagescoring.com/): the app. Enter pegging, hand and crib points; tracks the dealer, round history and skunks (loser under 91) and double skunks (under 61); plays to 121, 61 or a custom target; saves automatically.
+
+## Cribbage rules and guides
+- [Cribbage scoring rules](https://www.cribbagescoring.com/cribbage-scoring): points for fifteens, pairs, runs, flushes and nobs, pegging scores, the 29 hand, and skunk lines, with worked examples and an FAQ.
+- [How to play cribbage](https://www.cribbagescoring.com/how-to-play-cribbage): the deal, the crib, pegging, counting and winning at 121, with three and four player variations.
+- [Printable cribbage score sheet](https://www.cribbagescoring.com/cribbage-score-sheet): a free two-player score sheet; PDF at https://www.cribbagescoring.com/cribbage-score-sheet.pdf
+
+## Notes
+- Rules follow standard American Cribbage Congress play; house rules vary.
+- Key facts: standard game is 121 points (short game 61); highest possible hand is 29; ace = 1, face cards = 10.
