@@ -1,0 +1,16 @@
+app	cribbage score keeper
+app	cribbage scoring app
+app	cribbage counter app
+app	cribbage app
+app	cribbage scoreboard
+app	cribbage board app
+app	digital cribbage board
+rules	cribbage rules
+rules	cribbage scoring rules
+rules	how to play cribbage
+rules	cribbage scoring
+rules	cribbage points
+rules	cribbage skunk
+rules	cribbage hand scoring
+tool	cribbage hand calculator
+tool	cribbage score counter

@@ -1,0 +1,320 @@
+stage,intent,keyword,group,head,seed,autocomplete_rank,seed_variants,demand,trends
+Decision,transactional,can you play cribbage online,app,cribbage app,what is cribbage app,9,9,High,3.0
+Decision,transactional,cribbage board online free,app,cribbage board online free,cribbage board online free,1,10,High,
+Decision,transactional,cribbage board online free no download,app,cribbage board online free,cribbage board online free,2,10,High,
+Decision,transactional,crib board online free no download,app,cribbage board online free,cribbage board online free,3,10,High,
+Decision,transactional,virtual cribbage board online free,app,cribbage board online free,cribbage board online free,4,10,High,
+Decision,transactional,best cribbage board online free,app,cribbage board online free,cribbage board online free,5,10,High,
+Decision,transactional,3 person cribbage board online free,app,cribbage board online free,cribbage board online free,6,10,High,
+Decision,transactional,cribbage board online 2 player free,app,cribbage board online free,cribbage board online free,7,10,High,
+Decision,transactional,free online cribbage board game,app,cribbage board online free,cribbage board online free,8,10,High,
+Decision,transactional,can you play cribbage online with a friend,app,cribbage board online free,cribbage board online free,10,10,High,
+Decision,transactional,cribbage scoring calculator online,app,cribbage points calculator,cribbage points calculator,5,9,High,
+Decision,transactional,cribbage score keeper online,app,cribbage score keeper,cribbage score keeper,5,10,High,0.1
+Decision,transactional,cribbage score board online,app,cribbage score keeper,cribbage score keeper,10,10,High,0.1
+Decision,transactional,cribbage score sheet online,app,cribbage score sheet,cribbage score sheet,6,10,High,
+Decision,transactional,best cribbage board online,app,cribbage scoreboard,best cribbage scoreboard,4,10,High,0.0
+Decision,transactional,best cribbage board to buy,app,cribbage scoreboard,best cribbage scoreboard,9,10,High,0.0
+Decision,transactional,cribbage scoreboard online,app,cribbage scoreboard,cribbage scoreboard,2,4,Med,0.0
+Decision,transactional,best free cribbage scoring calculator online,rules,cribbage scoring,best cribbage scoring,8,10,High,10.0
+Decision,transactional,best way to play cribbage online with a friend,rules,how to play cribbage,best how to play cribbage,3,10,High,19.5
+Decision,transactional,best place to play cribbage online,rules,how to play cribbage,best how to play cribbage,5,10,High,19.5
+Decision,transactional,best app to play cribbage online with friends,rules,how to play cribbage,best how to play cribbage,6,10,High,19.5
+Decision,transactional,best way to play cribbage online,rules,how to play cribbage,best how to play cribbage,7,10,High,19.5
+Consideration,comparison,best cribbage app,app,cribbage app,best cribbage app,1,10,High,3.0
+Consideration,comparison,best cribbage app for iphone,app,cribbage app,best cribbage app,2,10,High,3.0
+Consideration,comparison,best cribbage app android,app,cribbage app,best cribbage app,3,10,High,3.0
+Consideration,comparison,best cribbage app reddit,app,cribbage app,best cribbage app,5,10,High,3.0
+Consideration,comparison,best cribbage app no ads,app,cribbage app,best cribbage app,6,10,High,3.0
+Consideration,comparison,best cribbage app for beginners,app,cribbage app,best cribbage app,7,10,High,3.0
+Consideration,comparison,best cribbage app to learn,app,cribbage app,best cribbage app,8,10,High,3.0
+Consideration,comparison,best cribbage app for ipad,app,cribbage app,best cribbage app,9,10,High,3.0
+Consideration,comparison,what is the best cribbage app,app,cribbage app,what is cribbage app,3,9,High,3.0
+Consideration,comparison,what is the best cribbage app to play with friends,app,cribbage app,what is cribbage app,4,9,High,3.0
+Consideration,comparison,what is the best free cribbage app,app,cribbage app,what is cribbage app,6,9,High,3.0
+Consideration,comparison,cribbage app reviews,app,cribbage app,cribbage app review,1,4,Med,3.0
+Consideration,comparison,best cribbage app for android,app,cribbage app for android,cribbage app for android,4,9,High,
+Consideration,comparison,best free cribbage app for android,app,cribbage app for android,cribbage app for android,6,9,High,
+Consideration,comparison,best free cribbage app for iphone,app,cribbage app for iphone,cribbage app for iphone,5,7,Med,
+Consideration,comparison,best cribbage board app,app,cribbage counter app,best cribbage counter app,1,4,Med,0.0
+Consideration,comparison,best cribbage board,app,cribbage scoreboard,best cribbage scoreboard,1,10,High,0.0
+Consideration,comparison,best cribbage board reddit,app,cribbage scoreboard,best cribbage scoreboard,3,10,High,0.0
+Consideration,comparison,best cribbage board for beginners,app,cribbage scoreboard,best cribbage scoreboard,6,10,High,0.0
+Consideration,comparison,best cribbage board for adults,app,cribbage scoreboard,best cribbage scoreboard,7,10,High,0.0
+Consideration,comparison,best cribbage board design,app,cribbage scoreboard,best cribbage scoreboard,10,10,High,0.0
+Consideration,comparison,cribbage board reviews,app,cribbage scoreboard,cribbage scoreboard review,1,3,Med,0.0
+Consideration,comparison,best cribbage scoring app,app,cribbage scoring app,best cribbage scoring app,1,6,Med,0.0
+Consideration,comparison,best free cribbage scoring calculator app,app,cribbage scoring app,best cribbage scoring app,2,6,Med,0.0
+Consideration,comparison,best cribbage hand score,rules,cribbage hand scoring,best cribbage hand scoring,1,5,Med,0.2
+Consideration,comparison,10 best cribbage hands scoring,rules,cribbage hand scoring,best cribbage hand scoring,4,5,Med,0.2
+Consideration,comparison,10 best cribbage hands scoring chart,rules,cribbage hand scoring,best cribbage hand scoring,5,5,Med,0.2
+Consideration,comparison,best cribbage hand points,rules,cribbage points,best cribbage points,3,7,Med,22.0
+Consideration,comparison,best cribbage hand 29 points,rules,cribbage points,best cribbage points,5,7,Med,22.0
+Consideration,comparison,crib point review,rules,cribbage points,cribbage points review,1,4,Med,22.0
+Consideration,comparison,best cribbage rules,rules,cribbage rules,best cribbage rules,1,7,Med,
+Consideration,comparison,alternative cribbage games,rules,cribbage rules,cribbage rules alternative,3,4,Med,
+Consideration,comparison,best scoring cribbage hand,rules,cribbage scoring,best cribbage scoring,2,10,High,10.0
+Consideration,comparison,best cribbage score,rules,cribbage scoring,best cribbage scoring,3,10,High,10.0
+Consideration,comparison,best crib score,rules,cribbage scoring,best cribbage scoring,5,10,High,10.0
+Consideration,comparison,best free cribbage scoring calculator,rules,cribbage scoring,best cribbage scoring,6,10,High,10.0
+Consideration,comparison,best app to play cribbage with friends,rules,how to play cribbage,best how to play cribbage,1,10,High,19.5
+Consideration,comparison,best way to play cribbage,rules,how to play cribbage,best how to play cribbage,2,10,High,19.5
+Consideration,comparison,best app to play cribbage,rules,how to play cribbage,best how to play cribbage,4,10,High,19.5
+Consideration,comparison,best learn to play cribbage app,rules,how to play cribbage,best how to play cribbage,8,10,High,19.5
+Consideration,comparison,best cribbage play,rules,how to play cribbage,best how to play cribbage,9,10,High,19.5
+Consideration,comparison,what is the best way to play cribbage,rules,how to play cribbage,what is how to play cribbage,4,6,Med,19.5
+Consideration,comparison,best cribbage hand calculator,tool,cribbage hand calculator,best cribbage hand calculator,1,10,High,0.2
+Consideration,comparison,best cribbage hand odds,tool,cribbage hand calculator,best cribbage hand calculator,3,10,High,0.2
+Consideration,comparison,what is the best cribbage hand possible,tool,cribbage hand calculator,best cribbage hand calculator,6,10,High,0.2
+Consideration,comparison,10 best cribbage hands,tool,cribbage hand calculator,best cribbage hand calculator,9,10,High,0.2
+Awareness,informational (head term),cribbage app,app,cribbage app,cribbage app,1,10,High,3.0
+Awareness,informational (head term),cribbage app no ads,app,cribbage app,cribbage app,2,10,High,3.0
+Awareness,informational (head term),cribbage app free,app,cribbage app,cribbage app,3,10,High,3.0
+Awareness,informational (head term),cribbage app to play with friends,app,cribbage app,cribbage app,5,10,High,3.0
+Awareness,informational (head term),cribbage apps for android,app,cribbage app,cribbage app,6,10,High,3.0
+Awareness,informational (head term),cribbage app for 2 players,app,cribbage app,cribbage app,7,10,High,3.0
+Awareness,informational (head term),cribbage app to play against friends,app,cribbage app,cribbage app,8,10,High,3.0
+Awareness,informational (head term),cribbage app no ads free,app,cribbage app,cribbage app,9,10,High,3.0
+Awareness,informational (head term),cribbage app for beginners,app,cribbage app,cribbage app,10,10,High,3.0
+Awareness,informational,what is crib app,app,cribbage app,what is cribbage app,1,9,High,3.0
+Awareness,informational,what is a crib appliance,app,cribbage app,what is cribbage app,2,9,High,3.0
+Awareness,informational,what is a tongue crib appliance,app,cribbage app,what is cribbage app,5,9,High,3.0
+Awareness,informational,is there a cribbage app,app,cribbage app,cribbage app review,2,4,Med,3.0
+Awareness,informational,how to play cribbage app,app,cribbage app,cribbage app review,3,4,Med,3.0
+Awareness,informational (head term),cribbage app for android,app,cribbage app for android,cribbage app for android,1,9,High,
+Awareness,informational (head term),free cribbage app for android,app,cribbage app for android,cribbage app for android,3,9,High,
+Awareness,informational (head term),free cribbage app for android no download,app,cribbage app for android,cribbage app for android,5,9,High,
+Awareness,informational (head term),cribbage app free download for android,app,cribbage app for android,cribbage app for android,7,9,High,
+Awareness,informational (head term),cribbage app for iphone,app,cribbage app for iphone,cribbage app for iphone,1,7,Med,
+Awareness,informational (head term),cribbage app for iphone and android,app,cribbage app for iphone,cribbage app for iphone,2,7,Med,
+Awareness,informational (head term),free cribbage app for iphone,app,cribbage app for iphone,cribbage app for iphone,4,7,Med,
+Awareness,informational (head term),cribbage board app,app,cribbage board app,cribbage board app,1,10,High,0.1
+Awareness,informational (head term),cribbage board app free,app,cribbage board app,cribbage board app,2,10,High,0.1
+Awareness,informational (head term),cribbage board app android,app,cribbage board app,cribbage board app,3,10,High,0.1
+Awareness,informational (head term),cribbage board app iphone,app,cribbage board app,cribbage board app,4,10,High,0.1
+Awareness,informational (head term),cribbage board app free download,app,cribbage board app,cribbage board app,5,10,High,0.1
+Awareness,informational (head term),cribbage score board app,app,cribbage board app,cribbage board app,8,10,High,0.1
+Awareness,informational (head term),cribbage board only app,app,cribbage board app,cribbage board app,10,10,High,0.1
+Awareness,informational,how to play 29 cribbage board,app,cribbage board app,best cribbage board app,2,3,Med,0.1
+Awareness,informational,how to make a custom cribbage board,app,cribbage board app,best cribbage board app,3,3,Med,0.1
+Awareness,informational (head term),cribbage board rules,app,cribbage board online free,cribbage board online free,9,10,High,
+Awareness,informational (head term),cribbage counter app,app,cribbage counter app,cribbage counter app,1,10,High,0.0
+Awareness,informational (head term),cribbage counter app free,app,cribbage counter app,cribbage counter app,2,10,High,0.0
+Awareness,informational (head term),cribbage calculator app,app,cribbage counter app,cribbage counter app,4,10,High,0.0
+Awareness,informational (head term),cribbage tracker app,app,cribbage counter app,cribbage counter app,8,10,High,0.0
+Awareness,informational (head term),cribbage hand counter app,app,cribbage counter app,cribbage counter app,10,10,High,0.0
+Awareness,informational (head term),cribbage apps to play with friends,app,cribbage counter app,best cribbage counter app,2,4,Med,0.0
+Awareness,informational (head term),app to keep cribbage score,app,cribbage counter app,best cribbage counter app,4,4,Med,0.0
+Awareness,informational (head term),cribbage pegboard app,app,cribbage pegging app,cribbage pegging app,1,3,Med,
+Awareness,informational (head term),cribbage pegging scoring,app,cribbage pegging app,cribbage pegging app,2,3,Med,
+Awareness,informational,what is the most pegging points in cribbage,app,cribbage pegging app,cribbage pegging app,3,3,Med,
+Awareness,informational (head term),cribbage points calculator,app,cribbage points calculator,cribbage points calculator,1,9,High,
+Awareness,informational (head term),cribbage points calculator for adults,app,cribbage points calculator,cribbage points calculator,2,9,High,
+Awareness,informational (head term),crib points calculator,app,cribbage points calculator,cribbage points calculator,3,9,High,
+Awareness,informational (head term),cribbage scoring calculator app,app,cribbage points calculator,cribbage points calculator,4,9,High,
+Awareness,informational (head term),free cribbage points calculator,app,cribbage points calculator,cribbage points calculator,6,9,High,
+Awareness,informational (head term),cribbage hand points calculator,app,cribbage points calculator,cribbage points calculator,7,9,High,
+Awareness,informational (head term),free cribbage points calculator for adults,app,cribbage points calculator,cribbage points calculator,8,9,High,
+Awareness,informational (head term),cribbage score keeper,app,cribbage score keeper,cribbage score keeper,1,10,High,0.1
+Awareness,informational (head term),cribbage score keeper crossword clue,app,cribbage score keeper,cribbage score keeper,2,10,High,0.1
+Awareness,informational (head term),cribbage score keeper nyt,app,cribbage score keeper,cribbage score keeper,3,10,High,0.1
+Awareness,informational (head term),cribbage score keeper app,app,cribbage score keeper,cribbage score keeper,4,10,High,0.1
+Awareness,informational (head term),cribbage score keeper name,app,cribbage score keeper,cribbage score keeper,6,10,High,0.1
+Awareness,informational (head term),cribbage score board,app,cribbage score keeper,cribbage score keeper,7,10,High,0.1
+Awareness,informational (head term),cribbage score card,app,cribbage score keeper,cribbage score keeper,8,10,High,0.1
+Awareness,informational (head term),cribbage score sheet,app,cribbage score sheet,cribbage score sheet,1,10,High,
+Awareness,informational (head term),cribbage score sheet pdf,app,cribbage score sheet,cribbage score sheet,2,10,High,
+Awareness,informational (head term),cribbage score sheet free,app,cribbage score sheet,cribbage score sheet,4,10,High,
+Awareness,informational (head term),cribbage score sheet pdf free,app,cribbage score sheet,cribbage score sheet,5,10,High,
+Awareness,informational (head term),crib score sheet,app,cribbage score sheet,cribbage score sheet,8,10,High,
+Awareness,informational (head term),crib score sheet template,app,cribbage score sheet,cribbage score sheet,9,10,High,
+Awareness,informational (head term),cribbage point sheet,app,cribbage score sheet,cribbage score sheet,10,10,High,
+Awareness,informational (head term),cribbage score tracker,app,cribbage score tracker,cribbage score tracker,1,10,High,
+Awareness,informational (head term),cribbage score tracker app,app,cribbage score tracker,cribbage score tracker,2,10,High,
+Awareness,informational (head term),cribbage scoreboard,app,cribbage scoreboard,cribbage scoreboard,1,4,Med,0.0
+Awareness,informational,what is cribbage board,app,cribbage scoreboard,what is cribbage scoreboard,1,4,Med,0.0
+Awareness,informational,how does cribbage scoring work,app,cribbage scoreboard,how does cribbage scoreboard work,1,4,Med,0.0
+Awareness,informational,what is cribbage board game,app,cribbage scoreboard,what is cribbage scoreboard,2,4,Med,0.0
+Awareness,informational,how does cribbage board work,app,cribbage scoreboard,how does cribbage scoreboard work,2,4,Med,0.0
+Awareness,informational,what is the highest score in cribbage,app,cribbage scoreboard,what is cribbage scoreboard,4,4,Med,0.0
+Awareness,informational (head term),cribbage scoring examples,app,cribbage scoreboard,cribbage scoreboard review,2,3,Med,0.0
+Awareness,informational (head term),cribbage scoring app,app,cribbage scoring app,cribbage scoring app,1,10,High,0.0
+Awareness,informational (head term),cribbage scoring app free,app,cribbage scoring app,cribbage scoring app,2,10,High,0.0
+Awareness,informational (head term),cribbage scoring app free download,app,cribbage scoring app,cribbage scoring app,3,10,High,0.0
+Awareness,informational (head term),crib scoring app,app,cribbage scoring app,cribbage scoring app,4,10,High,0.0
+Awareness,informational (head term),cribbage scorer app,app,cribbage scoring app,cribbage scoring app,5,10,High,0.0
+Awareness,informational (head term),cribbage counting app,app,cribbage scoring app,cribbage scoring app,6,10,High,0.0
+Awareness,informational (head term),cribbage scoreboard app,app,cribbage scoring app,cribbage scoring app,7,10,High,0.0
+Awareness,informational (head term),cribbage board scoring app,app,cribbage scoring app,cribbage scoring app,10,10,High,0.0
+Awareness,informational (head term),cribbage scoring guide,app,cribbage scoring app,best cribbage scoring app,6,6,Med,0.0
+Awareness,informational (head term),digital cribbage board,app,digital cribbage board,digital cribbage board,1,9,High,0.0
+Awareness,informational (head term),digital cribbage board app,app,digital cribbage board,digital cribbage board,2,9,High,0.0
+Awareness,informational (head term),digital cribbage board free,app,digital cribbage board,digital cribbage board,3,9,High,0.0
+Awareness,informational (head term),digital crib board free,app,digital cribbage board,digital cribbage board,4,9,High,0.0
+Awareness,informational (head term),electronic cribbage board,app,digital cribbage board,digital cribbage board,5,9,High,0.0
+Awareness,informational (head term),electronic cribbage board game,app,digital cribbage board,digital cribbage board,6,9,High,0.0
+Awareness,informational (head term),electronic cribbage board for sale,app,digital cribbage board,digital cribbage board,7,9,High,0.0
+Awareness,informational (head term),cribbage board dimensions,app,digital cribbage board,digital cribbage board,8,9,High,0.0
+Awareness,informational,what is a cribbage board,app,digital cribbage board,digital cribbage board,9,9,High,0.0
+Awareness,informational (head term),printable cribbage score sheet pdf,app,printable cribbage score sheet,printable cribbage score sheet,1,10,High,
+Awareness,informational (head term),printable cribbage score sheet,app,printable cribbage score sheet,printable cribbage score sheet,2,10,High,
+Awareness,informational (head term),free printable cribbage score sheet,app,printable cribbage score sheet,printable cribbage score sheet,3,10,High,
+Awareness,informational (head term),free printable cribbage score sheet pdf,app,printable cribbage score sheet,printable cribbage score sheet,4,10,High,
+Awareness,informational (head term),printable cribbage tournament score sheets,app,printable cribbage score sheet,printable cribbage score sheet,5,10,High,
+Awareness,informational (head term),printable cribbage score cheat sheet,app,printable cribbage score sheet,printable cribbage score sheet,6,10,High,
+Awareness,informational (head term),printable cross crib score sheet pdf,app,printable cribbage score sheet,printable cribbage score sheet,7,10,High,
+Awareness,informational (head term),printable cribbage scoring cheat sheet pdf,app,printable cribbage score sheet,printable cribbage score sheet,8,10,High,
+Awareness,informational (head term),printable cross crib score sheet,app,printable cribbage score sheet,printable cribbage score sheet,9,10,High,
+Awareness,informational (head term),printable cross crib score sheet pdf free download,app,printable cribbage score sheet,printable cribbage score sheet,10,10,High,
+Awareness,informational (head term),cribbage hand scoring,rules,cribbage hand scoring,cribbage hand scoring,1,10,High,0.2
+Awareness,informational (head term),cribbage hand scoring chart,rules,cribbage hand scoring,cribbage hand scoring,2,10,High,0.2
+Awareness,informational (head term),crib hand scoring,rules,cribbage hand scoring,cribbage hand scoring,3,10,High,0.2
+Awareness,informational (head term),cribbage hand scorer,rules,cribbage hand scoring,cribbage hand scoring,4,10,High,0.2
+Awareness,informational (head term),cribbage hand score calculator,rules,cribbage hand scoring,cribbage hand scoring,5,10,High,0.2
+Awareness,informational (head term),cribbage hand scores pdf,rules,cribbage hand scoring,cribbage hand scoring,6,10,High,0.2
+Awareness,informational (head term),cribbage hand scores printable,rules,cribbage hand scoring,cribbage hand scoring,7,10,High,0.2
+Awareness,informational (head term),cribbage hand scores chart printable,rules,cribbage hand scoring,cribbage hand scoring,8,10,High,0.2
+Awareness,informational (head term),cribbage hand scores calculator free,rules,cribbage hand scoring,cribbage hand scoring,9,10,High,0.2
+Awareness,informational (head term),cribbage hand counting,rules,cribbage hand scoring,cribbage hand scoring,10,10,High,0.2
+Awareness,informational,what is the average cribbage hand score,rules,cribbage hand scoring,what is cribbage hand scoring,1,5,Med,0.2
+Awareness,informational (head term),highest cribbage hand score,rules,cribbage hand scoring,best cribbage hand scoring,2,5,Med,0.2
+Awareness,informational,what is the highest cribbage hand score,rules,cribbage hand scoring,what is cribbage hand scoring,2,5,Med,0.2
+Awareness,informational (head term),perfect cribbage hand score,rules,cribbage hand scoring,best cribbage hand scoring,3,5,Med,0.2
+Awareness,informational,what is the average crib hand score,rules,cribbage hand scoring,what is cribbage hand scoring,3,5,Med,0.2
+Awareness,informational,what is the highest scoring cribbage hand possible,rules,cribbage hand scoring,what is cribbage hand scoring,4,5,Med,0.2
+Awareness,informational (head term),scoring cribbage hands,rules,cribbage hand scoring,what is cribbage hand scoring,5,5,Med,0.2
+Awareness,informational (head term),cribbage points,rules,cribbage points,cribbage points,1,10,High,22.0
+Awareness,informational (head term),cribbage points cheat sheet,rules,cribbage points,cribbage points,2,10,High,22.0
+Awareness,informational (head term),cribbage points chart,rules,cribbage points,cribbage points,3,10,High,22.0
+Awareness,informational (head term),cribbage points 4 of a kind,rules,cribbage points,cribbage points,4,10,High,22.0
+Awareness,informational (head term),cribbage points to win,rules,cribbage points,cribbage points,5,10,High,22.0
+Awareness,informational (head term),cribbage points rules,rules,cribbage points,cribbage points,6,10,High,22.0
+Awareness,informational (head term),cribbage points for 3 of a kind,rules,cribbage points,cribbage points,7,10,High,22.0
+Awareness,informational (head term),cribbage points for flush,rules,cribbage points,cribbage points,9,10,High,22.0
+Awareness,informational (head term),cribbage points for all same suit,rules,cribbage points,cribbage points,10,10,High,22.0
+Awareness,informational (head term),highest cribbage points,rules,cribbage points,best cribbage points,1,7,Med,22.0
+Awareness,informational,what is crib point postcode,rules,cribbage points,what is cribbage points,1,7,Med,22.0
+Awareness,informational,what is 29 points in cribbage,rules,cribbage points,what is cribbage points,2,7,Med,22.0
+Awareness,informational,what is four of a kind in cribbage points,rules,cribbage points,what is cribbage points,3,7,Med,22.0
+Awareness,informational (head term),highest points cribbage hand,rules,cribbage points,best cribbage points,4,7,Med,22.0
+Awareness,informational,what is 4 of a kind in cribbage points,rules,cribbage points,what is cribbage points,4,7,Med,22.0
+Awareness,informational (head term),cribbage point values,rules,cribbage points,cribbage points review,2,4,Med,22.0
+Awareness,informational (head term),cribbage values,rules,cribbage points,cribbage points review,3,4,Med,22.0
+Awareness,informational,how many points is nibs in cribbage,rules,cribbage points,cribbage points review,4,4,Med,22.0
+Awareness,informational,how to count points in cribbage,rules,cribbage points,how does cribbage points work,2,3,Med,22.0
+Awareness,informational,who gets the go point in cribbage,rules,cribbage points,how does cribbage points work,3,3,Med,22.0
+Awareness,informational (head term),cribbage rules,rules,cribbage rules,cribbage rules,1,10,High,
+Awareness,informational (head term),cribbage rules for 2,rules,cribbage rules,cribbage rules,2,10,High,
+Awareness,informational (head term),cribbage rules for 3,rules,cribbage rules,cribbage rules,3,10,High,
+Awareness,informational (head term),cribbage rules pdf,rules,cribbage rules,cribbage rules,4,10,High,
+Awareness,informational (head term),cribbage rules for 4,rules,cribbage rules,cribbage rules,6,10,High,
+Awareness,informational (head term),cribbage rules 3 players,rules,cribbage rules,cribbage rules,7,10,High,
+Awareness,informational (head term),cribbage rules printable,rules,cribbage rules,cribbage rules,8,10,High,
+Awareness,informational (head term),cribbage rules for beginners,rules,cribbage rules,cribbage rules,9,10,High,
+Awareness,informational (head term),cribbage rules flush,rules,cribbage rules,cribbage rules,10,10,High,
+Awareness,informational (head term),simple cribbage rules,rules,cribbage rules,best cribbage rules,4,7,Med,
+Awareness,informational (head term),cribbage rules 2 players,rules,cribbage rules,best cribbage rules,7,7,Med,
+Awareness,informational (head term),cribbage rules and strategy,rules,cribbage rules,cribbage rules vs,1,6,Med,
+Awareness,informational (head term),cribbage rules and points,rules,cribbage rules,cribbage rules vs,2,6,Med,
+Awareness,informational (head term),cribbage rules and how to play,rules,cribbage rules,cribbage rules vs,3,6,Med,
+Awareness,informational (head term),cribbage rules and counting,rules,cribbage rules,cribbage rules vs,4,6,Med,
+Awareness,informational (head term),rules cribbage beginners,rules,cribbage rules,cribbage rules vs,6,6,Med,
+Awareness,informational (head term),cribbage alternate rules,rules,cribbage rules,cribbage rules alternative,1,4,Med,
+Awareness,informational,what is cribbage rules,rules,cribbage rules,what is cribbage rules,1,4,Med,
+Awareness,informational (head term),simple cribbage rules printable,rules,cribbage rules,cribbage rules alternative,2,4,Med,
+Awareness,informational,what is knobs in cribbage rules,rules,cribbage rules,what is cribbage rules,2,4,Med,
+Awareness,informational,what is a skunk in cribbage rules,rules,cribbage rules,what is cribbage rules,3,4,Med,
+Awareness,informational (head term),list of cribbage rules,rules,cribbage rules,what is cribbage rules,4,4,Med,
+Awareness,informational,what are cribbage rules,rules,cribbage rules,how does cribbage rules work,2,3,Med,
+Awareness,informational (head term),single player cribbage rules,rules,cribbage rules,how does cribbage rules work,3,3,Med,
+Awareness,informational (head term),cribbage scoring,rules,cribbage scoring,cribbage scoring,1,10,High,10.0
+Awareness,informational (head term),cribbage scoring chart,rules,cribbage scoring,cribbage scoring,2,10,High,10.0
+Awareness,informational,what is crib score,rules,cribbage scoring,what is cribbage scoring,2,10,High,10.0
+Awareness,informational (head term),cribbage scoring cheat sheet,rules,cribbage scoring,cribbage scoring,3,10,High,10.0
+Awareness,informational,what is highest scoring cribbage hand,rules,cribbage scoring,what is cribbage scoring,3,10,High,10.0
+Awareness,informational (head term),cribbage scoring calculator,rules,cribbage scoring,cribbage scoring,4,10,High,10.0
+Awareness,informational,what is the cribbage score for 4 5's,rules,cribbage scoring,what is cribbage scoring,4,10,High,10.0
+Awareness,informational,what is highest cribbage score,rules,cribbage scoring,what is cribbage scoring,5,10,High,10.0
+Awareness,informational (head term),cribbage scoring sheet,rules,cribbage scoring,cribbage scoring,6,10,High,10.0
+Awareness,informational,what is my cribbage score,rules,cribbage scoring,what is cribbage scoring,6,10,High,10.0
+Awareness,informational,what is the cribbage score,rules,cribbage scoring,what is cribbage scoring,7,10,High,10.0
+Awareness,informational (head term),cribbage scoring 4 of a kind,rules,cribbage scoring,cribbage scoring,8,10,High,10.0
+Awareness,informational,what is the cribbage score for four of a kind,rules,cribbage scoring,what is cribbage scoring,8,10,High,10.0
+Awareness,informational (head term),cribbage scoring board,rules,cribbage scoring,cribbage scoring,9,10,High,10.0
+Awareness,informational (head term),highest scoring cribbage hand,rules,cribbage scoring,best cribbage scoring,9,10,High,10.0
+Awareness,informational,what is the cribbage score for 4 of a kind,rules,cribbage scoring,what is cribbage scoring,9,10,High,10.0
+Awareness,informational (head term),highest scoring cribbage hand possible,rules,cribbage scoring,best cribbage scoring,10,10,High,10.0
+Awareness,informational,how to keep score in cribbage,rules,cribbage scoring,how does cribbage scoring work,3,5,Med,10.0
+Awareness,informational,how are points scored in cribbage,rules,cribbage scoring,how does cribbage scoring work,4,5,Med,10.0
+Awareness,informational (head term),cribbage scoring rules,rules,cribbage scoring rules,cribbage scoring rules,1,10,High,0.3
+Awareness,informational (head term),cribbage scoring rules 2 players,rules,cribbage scoring rules,cribbage scoring rules,2,10,High,0.3
+Awareness,informational (head term),cribbage scoring rules pdf,rules,cribbage scoring rules,cribbage scoring rules,3,10,High,0.3
+Awareness,informational (head term),cribbage rules scoring runs,rules,cribbage scoring rules,cribbage scoring rules,4,10,High,0.3
+Awareness,informational (head term),cribbage rules scoring flush,rules,cribbage scoring rules,cribbage scoring rules,5,10,High,0.3
+Awareness,informational (head term),cribbage counting rules,rules,cribbage scoring rules,cribbage scoring rules,6,10,High,0.3
+Awareness,informational (head term),cribbage scoring system,rules,cribbage scoring rules,cribbage scoring rules,7,10,High,0.3
+Awareness,informational (head term),crib counting rules,rules,cribbage scoring rules,cribbage scoring rules,8,10,High,0.3
+Awareness,informational (head term),printable cribbage scoring rules,rules,cribbage scoring rules,cribbage scoring rules,9,10,High,0.3
+Awareness,informational (head term),cribbage rules counting points,rules,cribbage scoring rules,cribbage scoring rules,10,10,High,0.3
+Awareness,informational (head term),cribbage scoring and rules,rules,cribbage scoring rules,cribbage scoring rules vs,1,2,Low,0.3
+Awareness,informational,how to play cribbage scoring,rules,cribbage scoring rules,cribbage scoring rules vs,2,2,Low,0.3
+Awareness,informational (head term),cribbage skunk line,rules,cribbage skunk,cribbage skunk,1,10,High,3.6
+Awareness,informational,what is cribbage skunk,rules,cribbage skunk,what is cribbage skunk,1,10,High,3.6
+Awareness,informational (head term),cribbage skunk,rules,cribbage skunk,cribbage skunk,2,10,High,3.6
+Awareness,informational,what is the cribbage skunk line,rules,cribbage skunk,what is cribbage skunk,2,10,High,3.6
+Awareness,informational (head term),cribbage skunk rules,rules,cribbage skunk,cribbage skunk,3,10,High,3.6
+Awareness,informational,what is double skunk cribbage,rules,cribbage skunk,what is cribbage skunk,3,10,High,3.6
+Awareness,informational (head term),cribbage skunk points,rules,cribbage skunk,cribbage skunk,4,10,High,3.6
+Awareness,informational,what is getting skunked in cribbage,rules,cribbage skunk,what is cribbage skunk,4,10,High,3.6
+Awareness,informational,cribbage skunk meaning,rules,cribbage skunk,cribbage skunk,5,10,High,3.6
+Awareness,informational (head term),cribbage skunk hole,rules,cribbage skunk,cribbage skunk,6,10,High,3.6
+Awareness,informational,what is skunk score in cribbage,rules,cribbage skunk,what is cribbage skunk,6,10,High,3.6
+Awareness,informational (head term),cribbage skunk and double skunk,rules,cribbage skunk,cribbage skunk,7,10,High,3.6
+Awareness,informational (head term),in cribbage what is a skunk victory,rules,cribbage skunk,what is cribbage skunk,7,10,High,3.6
+Awareness,informational (head term),cribbage skunk victory,rules,cribbage skunk,cribbage skunk,8,10,High,3.6
+Awareness,informational,what is skunk number in cribbage,rules,cribbage skunk,what is cribbage skunk,8,10,High,3.6
+Awareness,informational (head term),cribbage skunk line number,rules,cribbage skunk,cribbage skunk,9,10,High,3.6
+Awareness,informational,what is triple skunk in cribbage,rules,cribbage skunk,what is cribbage skunk,9,10,High,3.6
+Awareness,informational,what's a skunk in cribbage,rules,cribbage skunk,what is cribbage skunk,10,10,High,3.6
+Awareness,informational,how does skunk work in cribbage,rules,cribbage skunk,how does cribbage skunk work,1,5,Med,3.6
+Awareness,informational,how does the skunk line work in cribbage,rules,cribbage skunk,how does cribbage skunk work,2,5,Med,3.6
+Awareness,informational,what is the skunk in cribbage,rules,cribbage skunk,how does cribbage skunk work,3,5,Med,3.6
+Awareness,informational,what is skunk and double skunk in cribbage,rules,cribbage skunk,how does cribbage skunk work,4,5,Med,3.6
+Awareness,informational,is there a double skunk in cribbage,rules,cribbage skunk,how does cribbage skunk work,5,5,Med,3.6
+Awareness,informational,how to play cribbage,rules,how to play cribbage,how to play cribbage,1,10,High,19.5
+Awareness,informational,how to play cribbage with 2 players,rules,how to play cribbage,how to play cribbage,2,10,High,19.5
+Awareness,informational,how to play cribbage with 3 players,rules,how to play cribbage,how to play cribbage,3,10,High,19.5
+Awareness,informational,how to play cribbage for beginners,rules,how to play cribbage,how to play cribbage,4,10,High,19.5
+Awareness,informational,how to play cribbage with 4 players,rules,how to play cribbage,how to play cribbage,5,10,High,19.5
+Awareness,informational,how to play cribbage card game,rules,how to play cribbage,how to play cribbage,6,10,High,19.5
+Awareness,informational,how to play cribbage video,rules,how to play cribbage,how to play cribbage,7,10,High,19.5
+Awareness,informational,how to play cribbage pdf,rules,how to play cribbage,how to play cribbage,8,10,High,19.5
+Awareness,informational,how to play cribbage with 6 players,rules,how to play cribbage,how to play cribbage,9,10,High,19.5
+Awareness,informational,what is needed to play cribbage,rules,how to play cribbage,what is how to play cribbage,1,6,Med,19.5
+Awareness,informational,what age to play cribbage,rules,how to play cribbage,what is how to play cribbage,2,6,Med,19.5
+Awareness,informational,what is playing cribbage,rules,how to play cribbage,what is how to play cribbage,3,6,Med,19.5
+Awareness,informational (head term),different ways to play cribbage,rules,how to play cribbage,what is how to play cribbage,6,6,Med,19.5
+Awareness,informational,why play cribbage,rules,how to play cribbage,why how to play cribbage,1,4,Med,19.5
+Awareness,informational,how to play cribbage strategy,rules,how to play cribbage,why how to play cribbage,2,4,Med,19.5
+Awareness,informational,how to play cribbage simplified,rules,how to play cribbage,why how to play cribbage,3,4,Med,19.5
+Awareness,informational,how to play cribbage for dummies,rules,how to play cribbage,why how to play cribbage,4,4,Med,19.5
+Awareness,informational (head term),cribbage hand calculator,tool,cribbage hand calculator,cribbage hand calculator,1,10,High,0.2
+Awareness,informational (head term),cribbage hand calculator scoring,tool,cribbage hand calculator,cribbage hand calculator,2,10,High,0.2
+Awareness,informational (head term),cribbage hand calculator app,tool,cribbage hand calculator,cribbage hand calculator,3,10,High,0.2
+Awareness,informational (head term),cribbage hand calculator free,tool,cribbage hand calculator,cribbage hand calculator,4,10,High,0.2
+Awareness,informational (head term),perfect cribbage hand odds,tool,cribbage hand calculator,best cribbage hand calculator,4,10,High,0.2
+Awareness,informational (head term),cribbage hand calculator for adults,tool,cribbage hand calculator,cribbage hand calculator,5,10,High,0.2
+Awareness,informational (head term),highest cribbage hand odds,tool,cribbage hand calculator,best cribbage hand calculator,5,10,High,0.2
+Awareness,informational (head term),cribbage hand calculator printable,tool,cribbage hand calculator,cribbage hand calculator,6,10,High,0.2
+Awareness,informational (head term),crib hand calculator scoring,tool,cribbage hand calculator,cribbage hand calculator,7,10,High,0.2
+Awareness,informational,how to count the highest hand in cribbage,tool,cribbage hand calculator,best cribbage hand calculator,7,10,High,0.2
+Awareness,informational (head term),cribbage calculator hand scorer,tool,cribbage hand calculator,cribbage hand calculator,8,10,High,0.2
+Awareness,informational,how to count cribbage hands,tool,cribbage hand calculator,best cribbage hand calculator,8,10,High,0.2
+Awareness,informational (head term),cribbage hand odds,tool,cribbage hand calculator,cribbage hand calculator,9,10,High,0.2
+Awareness,informational,how to get the highest hand in cribbage,tool,cribbage hand calculator,best cribbage hand calculator,10,10,High,0.2
+Awareness,informational (head term),cribbage score counter,tool,cribbage score counter,cribbage score counter,1,10,High,0.0
+Awareness,informational (head term),cribbage point counter,tool,cribbage score counter,cribbage score counter,2,10,High,0.0
+Awareness,informational (head term),cribbage point counter app,tool,cribbage score counter,cribbage score counter,3,10,High,0.0
+Awareness,informational (head term),cribbage score count,tool,cribbage score counter,cribbage score counter,4,10,High,0.0
+Awareness,informational (head term),cribbage score calculator,tool,cribbage score counter,cribbage score counter,5,10,High,0.0
+Awareness,informational (head term),cribbage score calculator app,tool,cribbage score counter,cribbage score counter,8,10,High,0.0

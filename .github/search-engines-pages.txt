@@ -1,0 +1,3 @@
+# Key pages inspected daily in Google Search Console, most important first (max 20).
+# The site is a single page for now; add the new rules and how-to pages here when they exist.
+/
