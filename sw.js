@@ -1,5 +1,5 @@
 /* Cribbage Scorekeeper service worker */
-const CACHE = 'cribbage-v14';
+const CACHE = 'cribbage-v15';
 const ASSETS = [
   './',
   './index.html',
@@ -31,16 +31,20 @@ self.addEventListener('fetch', (e) => {
   const url = new URL(req.url);
   if (url.origin !== self.location.origin) return; // ignore cross-origin
 
-  // Pages: network-first so updates show up immediately; cache is the offline fallback
-  if (req.mode === 'navigate' || url.pathname === '/' || url.pathname.endsWith('/index.html')) {
+  // Pages: network-first so updates show up immediately; cache is the offline fallback.
+  // The app shell is stored under ./index.html; other pages (rules, how-to) under their own request.
+  const isApp = url.pathname === '/' || url.pathname.endsWith('/index.html');
+  if (req.mode === 'navigate' || isApp) {
     e.respondWith(
       fetch(req).then((res) => {
         if (res && res.status === 200 && res.type === 'basic') {
           const copy = res.clone();
-          caches.open(CACHE).then((c) => c.put('./index.html', copy));
+          caches.open(CACHE).then((c) => c.put(isApp ? './index.html' : req, copy));
         }
         return res;
-      }).catch(() => caches.match('./index.html'))
+      }).catch(() =>
+        caches.match(isApp ? './index.html' : req).then((m) => m || caches.match('./index.html'))
+      )
     );
     return;
   }
