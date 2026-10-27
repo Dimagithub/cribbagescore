@@ -2,3 +2,4 @@
 /
 /cribbage-scoring
 /how-to-play-cribbage
+/cribbage-score-sheet
