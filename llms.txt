@@ -11,5 +11,6 @@
 - [Printable cribbage score sheet](https://www.cribbagescoring.com/cribbage-score-sheet): a free two-player score sheet; PDF at https://www.cribbagescoring.com/cribbage-score-sheet.pdf
 
 ## Notes
+- The web version is free and ad-free, and the owner has promised it stays that way forever. A mobile app with paid plans is planned for later.
 - Rules follow standard American Cribbage Congress play; house rules vary.
 - Key facts: standard game is 121 points (short game 61); highest possible hand is 29; ace = 1, face cards = 10.
