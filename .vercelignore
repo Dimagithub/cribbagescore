@@ -1,0 +1,5 @@
+# Internal files: keep them in the repo but out of the public website
+seo
+SEO.md
+tools
+.github
