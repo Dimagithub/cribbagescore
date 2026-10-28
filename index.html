@@ -29,6 +29,7 @@
 {"@type":"Question","name":"Does it work offline?","acceptedAnswer":{"@type":"Answer","text":"Yes. After you open it once, the app is saved on your device and works without an internet connection. Installing it to your home screen makes it open like any other app."}},
 {"@type":"Question","name":"How many players does it support?","acceptedAnswer":{"@type":"Answer","text":"It keeps score for two players or two teams. For a four-player partnership game, each pair shares one score."}},
 {"@type":"Question","name":"How do I enter points?","acceptedAnswer":{"@type":"Answer","text":"For each step of the round, tap +1 or +2 to add points, and press and hold either button to pick a larger value. The tap tally shows what you added, and minus 1 undoes a mistake."}},
+{"@type":"Question","name":"Can it count my hand for me?","acceptedAnswer":{"@type":"Answer","text":"Yes. Open the Score helper (the abacus button), tap the four cards in your hand and the starter, and press Calculate. It shows the total and explains every fifteen, pair, run, flush and nobs. Choose Counting the crib for the crib, where a flush only counts with all five cards in one suit."}},
 {"@type":"Question","name":"Does it detect a skunk?","acceptedAnswer":{"@type":"Answer","text":"Yes. In a 121-point game, if the loser finishes under 91 it flags a skunk, and under 61 a double skunk."}},
 {"@type":"Question","name":"Can I play to 61 instead of 121?","acceptedAnswer":{"@type":"Answer","text":"Yes. Choose 121, 61 or enter any target when you start a game."}},
 {"@type":"Question","name":"Is my game saved?","acceptedAnswer":{"@type":"Answer","text":"Yes. The game saves automatically on your device, so you can close the app and pick up where you left off. Player names are remembered for next time."}}
@@ -258,6 +259,65 @@
     opacity:.6;cursor:pointer;font-family:'Oswald',sans-serif;text-transform:uppercase;
     letter-spacing:.1em;font-size:.78rem;padding:4px 2px;}
   .gate-link:active{opacity:1;}
+  /* ---- score helper (full-screen overlay) ---- */
+  #helperOv{position:fixed;inset:0;z-index:240;background:var(--bg);color:var(--text);display:none;flex-direction:column;}
+  #helperOv.show{display:flex;}
+  .sh-head{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid var(--line);flex:0 0 auto;}
+  .sh-title{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.14em;color:var(--gold);font-size:1.15rem;}
+  .sh-close{background:transparent;border:1px solid var(--line);border-radius:10px;color:var(--cream);font-size:1.1rem;width:40px;height:36px;cursor:pointer;}
+  .sh-body{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:10px 10px 32px;display:grid;grid-template-columns:minmax(0,1fr);gap:12px;align-content:start;max-width:1100px;width:100%;margin:0 auto;box-sizing:border-box;}
+  .sh-modes{display:flex;gap:8px;margin-bottom:10px;}
+  .sh-modes button{flex:1;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.08em;background:var(--btn);color:var(--cream);border:1px solid var(--line);border-radius:10px;padding:9px 6px;font-size:.95rem;cursor:pointer;}
+  .sh-modes button.sel{background:var(--gold);color:var(--on-gold);border-color:var(--gold);font-weight:700;}
+  .sh-tray{display:flex;gap:14px;align-items:flex-end;justify-content:center;}
+  .sh-trayrow{display:flex;flex-direction:column;gap:4px;}
+  .sh-lab{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.12em;font-size:.72rem;opacity:.65;}
+  .sh-slots{display:flex;gap:6px;}
+  .sh-slot{width:50px;height:68px;border-radius:9px;border:2px dashed var(--line);background:transparent;color:var(--muted,#888);font-size:1.4rem;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;padding:0;line-height:1.05;font-family:'Oswald',sans-serif;}
+  .sh-slot.full{border-style:solid;border-color:rgba(0,0,0,.3);background:#fbf8ef;color:#1b1b1f;font-weight:700;}
+  .sh-slot.full.red{color:#c8372d;}
+  .sh-slot.starter{border-color:var(--gold);}
+  .sh-slot.active{outline:3px solid var(--gold);outline-offset:1px;}
+  .sh-slot .r{font-size:1.45rem;}
+  .sh-slot .s{font-size:1.25rem;}
+  .sh-hint{text-align:center;font-size:.82rem;opacity:.75;min-height:1.2em;margin:8px 0 0;}
+  .sh-grid{display:grid;grid-template-columns:repeat(13,minmax(0,1fr));gap:3px;}
+  .sh-card{aspect-ratio:1/1.95;min-height:38px;border-radius:5px;border:1px solid rgba(0,0,0,.3);background:#fbf8ef;color:#1b1b1f;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;padding:0;cursor:pointer;font-family:'Oswald',sans-serif;font-weight:700;line-height:1;-webkit-tap-highlight-color:transparent;touch-action:manipulation;}
+  .sh-card .r{font-size:clamp(10px,3.1vw,19px);}
+  .sh-card .s{font-size:clamp(11px,3.3vw,20px);}
+  .sh-card.red{color:#c8372d;}
+  .sh-card.sel{background:var(--gold);color:var(--on-gold);border-color:var(--gold);box-shadow:0 0 0 2px var(--gold);transform:scale(.92);}
+  .sh-actions{display:flex;gap:10px;}
+  .sh-actions .go{margin-top:0;flex:2;}
+  .sh-actions .ghost{margin-top:0;flex:1;}
+  .sh-actions .go:disabled{opacity:.4;cursor:default;}
+  #shResult{display:none;}
+  #shResult.show{display:block;}
+  .sh-total{text-align:center;margin:4px 0 12px;}
+  .sh-total .n{font-family:'Oswald',sans-serif;font-size:4.2rem;line-height:1;color:var(--gold);font-weight:700;}
+  .sh-total .t{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.14em;font-size:.8rem;opacity:.7;}
+  .sh-step{border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-bottom:9px;background:var(--inset-soft);text-align:left;}
+  .sh-step .hd{display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.07em;}
+  .sh-step .hd .pt{color:var(--gold);font-size:1.05rem;white-space:nowrap;}
+  .sh-step .hd .pt.zero{opacity:.45;color:var(--cream);}
+  .sh-step ul{margin:6px 0 2px;padding-left:0;list-style:none;font-size:.95rem;}
+  .sh-step li{display:flex;justify-content:space-between;gap:8px;padding:2px 0;align-items:center;}
+  .sh-step li .pp{color:var(--gold);font-weight:700;white-space:nowrap;}
+  .sh-step .note{font-size:.84rem;opacity:.75;margin:4px 0 0;line-height:1.4;}
+  .sh-step .run{font-size:.8rem;opacity:.6;text-align:right;margin-top:5px;font-family:'Oswald',sans-serif;letter-spacing:.06em;text-transform:uppercase;}
+  .sh-chip{display:inline-block;background:#fbf8ef;color:#1b1b1f;border:1px solid rgba(0,0,0,.3);border-radius:4px;padding:0 4px;margin-right:3px;font-weight:700;font-size:.9rem;line-height:1.35;}
+  .sh-chip.red{color:#c8372d;}
+  .sh-note-head{font-size:.84rem;opacity:.8;margin:2px 0 10px;text-align:center;}
+  .sh-rot{text-align:center;font-size:.75rem;opacity:.5;margin-top:6px;}
+  @media (min-width:700px){
+    .sh-body{grid-template-columns:minmax(0,1.55fr) minmax(290px,1fr);grid-template-areas:"grid top" "grid actions" "grid result";grid-template-rows:auto auto 1fr;column-gap:18px;align-items:start;}
+    .sh-top{grid-area:top;} .sh-gridwrap{grid-area:grid;position:sticky;top:0;} .sh-actions{grid-area:actions;} #shResult{grid-area:result;}
+    .sh-card{aspect-ratio:5/8;}
+    .sh-card .r{font-size:clamp(12px,1.9vw,22px);} .sh-card .s{font-size:clamp(13px,2vw,24px);}
+    .sh-slot{width:54px;height:72px;}
+    .sh-rot{display:none;}
+  }
+  .gate-links{flex-wrap:wrap;}
   /* video overlay */
   #videoOv{background:#000;}
   #videoOv video{width:100%;height:100%;object-fit:contain;display:block;}
@@ -410,6 +470,7 @@
     <h1>Cribbage</h1>
     <div class="right">
       <span class="tg">to <span id="tgtLabel">121</span></span>
+      <button class="iconbtn" onclick="openHelper()" title="Score helper" aria-label="Score helper">&#129518;</button>
       <button class="iconbtn" id="helpBtn" onclick="openHelp()" title="Help">?</button>
       <button class="iconbtn" id="themeBtn" onclick="toggleTheme()" title="Theme">&#9790;</button>
       <button class="iconbtn" id="viewBtn" onclick="toggleView()" title="Tabletop mode">&#8645;</button>
@@ -466,6 +527,7 @@
       <button class="iconbtn" onclick="openHistory()" title="History">&#128340;</button>
       <button class="iconbtn" onclick="openExport()" title="Save">&#128190;</button>
       <button class="iconbtn" onclick="openNewGame()" title="New game">&#128260;</button>
+      <button class="iconbtn" onclick="openHelper()" title="Score helper" aria-label="Score helper">&#129518;</button>
       <button class="iconbtn" onclick="openHelp()" title="Help">?</button>
       <button class="iconbtn" id="themeBtn2" onclick="toggleTheme()" title="Theme">&#9790;</button>
       <button class="iconbtn" id="muteBtn2" onclick="toggleMute()" title="Mute">&#128264;</button>
@@ -524,6 +586,7 @@
       </div>
       <input id="tgtInput" type="number" inputmode="numeric" value="121" style="margin-top:8px;width:100%;background:var(--inset);border:1px solid var(--line);border-radius:10px;color:var(--cream);font-family:'Oswald',sans-serif;font-size:1rem;text-align:center;padding:9px;">
       <button class="go" style="width:100%;" onclick="startGame()">Start game</button>
+      <button class="ghost" style="width:100%;" onclick="openHelper()">&#129518; Score helper (count a hand)</button>
     </div>
   </div>
 
@@ -575,6 +638,10 @@
         <div class="help-h">&#9881; Settings</div>
         <p><span class="help-tag">&#9790;</span> toggles light/dark theme. <span class="help-tag">&#128266;</span> mutes sound, speech, and vibration. Both are remembered.</p>
       </div>
+      <div class="help-sec">
+        <div class="help-h">&#129518; Score Helper</div>
+        <p>Tap <span class="help-tag">&#129518;</span> (in the middle bar, or on the start screen) to count any hand. Tap the <b>4 cards in the hand</b>, then the <b>starter</b>, then <b>Calculate</b>. It shows the total and explains each fifteen, pair, run, flush and nobs step by step. Pick <b>Counting the crib</b> for the crib. It opens over your game and never changes it. Tap a chosen card to remove it.</p>
+      </div>
       <div style="padding:12px 4px 4px;"><div style="font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.12em;font-size:.75rem;color:var(--text);opacity:.5;border-top:1px solid var(--line);padding-top:10px;">Cribbage Rules</div></div>
       <div class="help-sec">
         <div class="help-h">&#127918; Objective &amp; Deal</div>
@@ -603,6 +670,7 @@
     </div>
     <button class="ghost" onclick="closeHelp();openVideo();" style="margin-top:14px;">&#9654; Watch Demo</button>
     <a href="https://telling-stream-c22.notion.site/37a5613011df80049f28fb4665d4a8b4?pvs=105" target="_blank" rel="noopener" class="ghost" style="text-decoration:none;display:inline-block;margin-top:8px;">&#128394; Send Feedback</a>
+    <button class="ghost" onclick="closeHelp();openHelper();" style="margin-top:8px;">&#129518; Score Helper (count a hand)</button>
     <a href="/how-to-play-cribbage" target="_blank" rel="noopener" class="ghost" style="text-decoration:none;display:inline-block;margin-top:8px;">&#128214; How to Play (full guide)</a>
     <a href="/cribbage-scoring" target="_blank" rel="noopener" class="ghost" style="text-decoration:none;display:inline-block;margin-top:8px;">&#127919; Scoring Rules (full list)</a>
     <button class="ghost" onclick="testFeedback()" style="margin-top:8px;">&#128276; Test sound &amp; haptic</button>
@@ -713,6 +781,7 @@
       <div class="gate-links" style="margin-top:12px;">
         <a href="/cribbage-scoring" class="gate-link" style="text-decoration:none;">Scoring rules</a>
         <a href="/how-to-play-cribbage" class="gate-link" style="text-decoration:none;">How to play</a>
+        <button class="gate-link" onclick="openHelper()">&#129518; Score helper</button>
         <button class="gate-link" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">About &#9662;</button>
       </div>
     </div>
@@ -724,6 +793,7 @@
       <h2>Features</h2>
       <ul>
         <li><strong>Fast scoring:</strong> tap +1 or +2, or press and hold for bigger scores like 12, 16, 20, 24 or 29.</li>
+        <li><strong>Score helper:</strong> tap the four cards of a hand (or the crib) and the starter, and it adds up the points and explains each fifteen, pair, run, flush and nobs step by step. It opens over your game without changing it, and works before a game starts too.</li>
         <li><strong>Follows the game:</strong> pegging, then the non-dealer's hand, the dealer's hand and the crib, with the dealer alternating automatically.</li>
         <li><strong>Tabletop layout:</strong> the screen splits in two, so each player scores on their own side, with the top half facing the player across the table.</li>
         <li><strong>Skunk detection:</strong> a skunk or double skunk is flagged when the game ends.</li>
@@ -744,11 +814,39 @@
       <details><summary>Does it work offline?</summary><p>Yes. After you open it once, the app is saved on your device and works without an internet connection. Installing it to your home screen makes it open like any other app.</p></details>
       <details><summary>How many players does it support?</summary><p>It keeps score for two players or two teams. For a four-player partnership game, each pair shares one score.</p></details>
       <details><summary>How do I enter points?</summary><p>For each step of the round, tap +1 or +2 to add points, and press and hold either button to pick a larger value. The tap tally shows what you added, and &minus;1 undoes a mistake.</p></details>
+      <details><summary>Can it count my hand for me?</summary><p>Yes. Open the Score helper (the abacus button), tap the four cards in your hand and the starter, and press Calculate. It shows the total and explains every fifteen, pair, run, flush and nobs. Choose "Counting the crib" for the crib, where a flush only counts with all five cards in one suit.</p></details>
       <details><summary>Does it detect a skunk?</summary><p>Yes. In a 121-point game, if the loser finishes under 91 it flags a skunk, and under 61 a double skunk.</p></details>
       <details><summary>Can I play to 61 instead of 121?</summary><p>Yes. Choose 121, 61 or enter any target when you start a game.</p></details>
       <details><summary>Is my game saved?</summary><p>Yes. The game saves automatically on your device, so you can close the app and pick up where you left off. Player names are remembered for next time.</p></details>
     </section>
   </div>
+  <!-- SCORE HELPER -->
+  <div id="helperOv" role="dialog" aria-modal="true" aria-label="Cribbage score helper">
+    <div class="sh-head">
+      <div class="sh-title">&#129518; Score Helper</div>
+      <button class="sh-close" onclick="closeHelper()" aria-label="Close score helper">&#10005;</button>
+    </div>
+    <div class="sh-body">
+      <div class="sh-top">
+        <div class="sh-modes">
+          <button id="shModeHand" class="sel" onclick="shMode(false)">Counting a hand</button>
+          <button id="shModeCrib" onclick="shMode(true)">Counting the crib</button>
+        </div>
+        <div class="sh-tray">
+          <div class="sh-trayrow"><div class="sh-lab">Hand (4 cards)</div><div class="sh-slots" id="shSlotsHand"></div></div>
+          <div class="sh-trayrow"><div class="sh-lab">Starter</div><div class="sh-slots" id="shSlotsStarter"></div></div>
+        </div>
+        <div class="sh-hint" id="shHint"></div>
+      </div>
+      <div class="sh-gridwrap"><div class="sh-grid" id="shGrid"></div><div class="sh-rot">Tip: turn your phone sideways for bigger cards.</div></div>
+      <div class="sh-actions">
+        <button class="go" id="shCalc" onclick="shCalculate()" disabled>Calculate</button>
+        <button class="ghost" onclick="shClear()">Clear</button>
+      </div>
+      <div id="shResult" aria-live="polite"></div>
+    </div>
+  </div>
+
   <canvas id="confetti"></canvas>
   <div id="popBackdrop" onclick="closePop()"></div>
   <div id="popMenu"></div>
@@ -1494,7 +1592,7 @@
   function passGate(e){
     if(gatePassed) return;
     if(e && e.isTrusted===false) return; // ignore synthetic/bot events
-    if(e && e.target && e.target.closest && e.target.closest('.gate-link, .gate-info')) return; // help/install links stay on gate
+    if(e && e.target && e.target.closest && e.target.closest('.gate-link, .gate-info, #helperOv')) return; // help/install links stay on gate
     gatePassed=true;
     unlockAudio();
     acquireWakeLock();
@@ -1502,6 +1600,147 @@
     document.removeEventListener('pointerdown',passGate,true);
     document.removeEventListener('touchend',passGate,true);
   }
+  /* ---------- score helper ---------- */
+  /* @@engine-start (pure scoring logic, no DOM) */
+  const SH_RANKS=['A','2','3','4','5','6','7','8','9','10','J','Q','K'];
+  const SH_SUITS=[{id:'S',sym:'♠',name:'spades',red:false},{id:'H',sym:'♥',name:'hearts',red:true},{id:'C',sym:'♣',name:'clubs',red:false},{id:'D',sym:'♦',name:'diamonds',red:true}];
+  const SH_SUITSYM={S:'♠',H:'♥',C:'♣',D:'♦'};
+  const SH_RANKNAME=['','ace','2','3','4','5','6','7','8','9','10','jack','queen','king'];
+  const shVal=c=>Math.min(c.r,10);
+  const shLabel=c=>SH_RANKS[c.r-1]+SH_SUITSYM[c.s];
+  function shScore(hand,starter,isCrib){
+    const cards=hand.concat([starter]);
+    const steps=[]; let running=0;
+    const add=(key,title,lines,note)=>{
+      const pts=lines.reduce((t,l)=>t+l.pts,0); running+=pts;
+      steps.push({key,title,points:pts,lines,note:note||'',running});
+    };
+    // 1. fifteens: every combination of cards adding to 15
+    const f=[];
+    for(let m=1;m<32;m++){
+      const pick=[]; let sum=0;
+      for(let i=0;i<5;i++) if(m&(1<<i)){pick.push(cards[i]);sum+=shVal(cards[i]);}
+      if(pick.length>=2 && sum===15) f.push({cards:pick,label:pick.map(c=>shVal(c)).join(' + ')+' = 15',pts:2});
+    }
+    f.sort((a,b)=>a.cards.length-b.cards.length);
+    add('fifteens','Fifteens',f,f.length?'Each different set of cards that adds up to 15 scores 2. Aces count 1, face cards count 10.':'No set of cards adds up to 15.');
+    // 2. pairs
+    const p=[];
+    for(let r=1;r<=13;r++){
+      const same=cards.filter(c=>c.r===r);
+      if(same.length===2) p.push({cards:same,label:'pair',pts:2});
+      else if(same.length===3) p.push({cards:same,label:'three of a kind (3 pairs)',pts:6});
+      else if(same.length===4) p.push({cards:same,label:'four of a kind (6 pairs)',pts:12});
+    }
+    add('pairs','Pairs',p,p.length?'Two of a kind is 2, three of a kind is 6, four of a kind is 12.':'No cards of the same rank.');
+    // 3. runs (maximal runs only; ace is low, no wrap past the king)
+    const cnt=Array(15).fill(0); cards.forEach(c=>cnt[c.r]++);
+    const runs=[]; let runLen=0;
+    for(let L=5;L>=3 && !runLen;L--){
+      for(let st=1;st+L-1<=13;st++){
+        let ok=true; for(let r=st;r<st+L;r++) if(!cnt[r]) ok=false;
+        if(!ok) continue;
+        runLen=L;
+        let combos=[[]];
+        for(let r=st;r<st+L;r++){
+          const withRank=cards.filter(c=>c.r===r);
+          const next=[]; combos.forEach(cb=>withRank.forEach(c=>next.push(cb.concat([c])))); combos=next;
+        }
+        combos.forEach(cb=>runs.push({cards:cb,label:'run of '+L,pts:L}));
+      }
+    }
+    const runNote=!runs.length?'No three cards in a row (ace is low; king does not connect to ace).'
+      :runs.length===1?'Three or more cards in a row score 1 point per card, suits do not matter.'
+      :'A repeated card makes extra runs: each different set of cards forming a run scores its own points ('+runs.length+' runs here).';
+    add('runs','Runs',runs,runNote);
+    // 4. flush
+    const hs=hand.map(c=>c.s); const handFlush=hs.every(x=>x===hs[0]); let fl=[]; let flNote;
+    if(handFlush && starter.s===hs[0]) {fl=[{cards:cards,label:'five cards of one suit',pts:5}]; flNote='All five cards, including the starter, share a suit.';}
+    else if(handFlush && !isCrib) {fl=[{cards:hand,label:'four cards of one suit',pts:4}]; flNote='The four cards in your hand share a suit (the starter does not).';}
+    else if(handFlush && isCrib) flNote='All four crib cards share a suit, but in the crib a flush only counts when the starter matches too (all five cards).';
+    else flNote=isCrib?'In the crib a flush needs all five cards (with the starter) in one suit.':'A flush needs the four cards in your hand to share a suit (5 points if the starter matches too).';
+    add('flush','Flush',fl,flNote);
+    // 5. nobs
+    const nb=hand.filter(c=>c.r===11 && c.s===starter.s).map(c=>({cards:[c],label:'jack matching the starter suit',pts:1}));
+    add('nobs','Nobs',nb,nb.length?'Holding the jack of the same suit as the starter scores 1 point.':'No jack in your cards matches the starter\'s suit.');
+    return {total:running,steps,heels:starter.r===11,isCrib:!!isCrib};
+  }
+  /* @@engine-end */
+
+  const shState={slots:[null,null,null,null,null],active:-1,crib:false,built:false};
+  const shCardId=c=>c.s+c.r;
+  const shIsRed=c=>c.s==='H'||c.s==='D';
+  function shChip(c){return '<span class="sh-chip'+(shIsRed(c)?' red':'')+'">'+shLabel(c)+'</span>';}
+  function shBuild(){
+    if(shState.built) return; shState.built=true;
+    const g=$('shGrid'); let h='';
+    SH_SUITS.forEach(su=>{ for(let r=1;r<=13;r++){
+      const nm=SH_RANKNAME[r]+' of '+su.name;
+      h+='<button class="sh-card'+(su.red?' red':'')+'" data-c="'+su.id+r+'" aria-label="'+nm+'" aria-pressed="false"><span class="r">'+SH_RANKS[r-1]+'</span><span class="s">'+su.sym+'</span></button>';
+    }});
+    g.innerHTML=h;
+    g.addEventListener('click',e=>{const b=e.target.closest('.sh-card'); if(b) shTap(b.dataset.c);});
+    let sl=''; for(let i=0;i<4;i++) sl+='<button class="sh-slot" data-i="'+i+'" aria-label="Hand card '+(i+1)+'"></button>';
+    $('shSlotsHand').innerHTML=sl;
+    $('shSlotsStarter').innerHTML='<button class="sh-slot starter" data-i="4" aria-label="Starter card"></button>';
+    document.querySelectorAll('#helperOv .sh-slot').forEach(b=>b.addEventListener('click',()=>shTapSlot(+b.dataset.i)));
+  }
+  function shParse(id){return {s:id[0],r:parseInt(id.slice(1),10)};}
+  function shTap(id){
+    const st=shState, idx=st.slots.findIndex(c=>c&&shCardId(c)===id);
+    if(idx>=0){ st.slots[idx]=null; st.active=-1; buzz(8); }
+    else{
+      let t=-1;
+      if(st.active>=0 && !st.slots[st.active]) t=st.active;
+      else{ t=st.slots.findIndex((c,i)=>i<4&&!c); if(t<0 && !st.slots[4]) t=4; }
+      if(t<0){ $('shHint').textContent='All 5 cards are chosen. Tap a chosen card to remove it.'; buzz(20); return; }
+      st.slots[t]=shParse(id); st.active=-1; buzz(8);
+    }
+    shRender(true);
+  }
+  function shTapSlot(i){
+    const st=shState;
+    if(st.slots[i]){ st.slots[i]=null; st.active=i; } else { st.active=(st.active===i?-1:i); }
+    buzz(8); shRender(true);
+  }
+  function shMode(crib){ shState.crib=crib; shRender(true); }
+  function shClear(){ shState.slots=[null,null,null,null,null]; shState.active=-1; shRender(true); }
+  function shRender(resetResult){
+    const st=shState;
+    document.querySelectorAll('#helperOv .sh-slot').forEach(b=>{
+      const i=+b.dataset.i, c=st.slots[i];
+      b.className='sh-slot'+(i===4?' starter':'')+(c?' full'+(shIsRed(c)?' red':''):'')+(st.active===i?' active':'');
+      b.innerHTML=c?'<span class="r">'+SH_RANKS[c.r-1]+'</span><span class="s">'+SH_SUITSYM[c.s]+'</span>':(i===4?'\u2605':'+');
+    });
+    const chosen={}; st.slots.forEach(c=>{if(c) chosen[shCardId(c)]=1;});
+    document.querySelectorAll('#shGrid .sh-card').forEach(b=>{const on=!!chosen[b.dataset.c]; b.classList.toggle('sel',on); b.setAttribute('aria-pressed',on?'true':'false');});
+    $('shModeHand').classList.toggle('sel',!st.crib); $('shModeCrib').classList.toggle('sel',st.crib);
+    const n=st.slots.filter(Boolean).length, ready=n===5;
+    $('shCalc').disabled=!ready;
+    $('shHint').textContent=ready?'Ready. Tap Calculate.':(st.active>=0?(st.active===4?'Tap the starter card.':'Tap a card for hand slot '+(st.active+1)+'.'):'Tap '+(5-n)+' more card'+(5-n===1?'':'s')+' (4 in your hand, then the starter). Tap a chosen card to remove it.');
+    if(resetResult){ $('shResult').classList.remove('show'); $('shResult').innerHTML=''; }
+  }
+  function shCalculate(){
+    const st=shState; if(st.slots.some(c=>!c)) return;
+    const res=shScore(st.slots.slice(0,4),st.slots[4],st.crib);
+    let h='<div class="sh-total"><div class="n">'+res.total+'</div><div class="t">points in the '+(res.isCrib?'crib':'hand')+'</div></div>';
+    h+='<div class="sh-note-head"><a href="#" onclick="document.querySelector(\'#helperOv .sh-body\').scrollTo({top:0,behavior:\'smooth\'});return false;" style="color:var(--gold)">&uarr; Change cards</a></div>';
+    h+='<div class="sh-note-head">Hand: '+st.slots.slice(0,4).map(shChip).join('')+' &nbsp;Starter: '+shChip(st.slots[4])+'</div>';
+    res.steps.forEach((sp,i)=>{
+      h+='<div class="sh-step"><div class="hd"><span>'+(i+1)+'. '+sp.title+'</span><span class="pt'+(sp.points?'':' zero')+'">'+(sp.points?'+'+sp.points:'0')+'</span></div>';
+      if(sp.lines.length){
+        h+='<ul>'+sp.lines.map(l=>'<li><span>'+l.cards.map(shChip).join('')+' <small>'+l.label+'</small></span><span class="pp">+'+l.pts+'</span></li>').join('')+'</ul>';
+      }
+      if(sp.note) h+='<div class="note">'+sp.note+'</div>';
+      h+='<div class="run">Running total: '+sp.running+'</div></div>';
+    });
+    if(res.heels) h+='<div class="sh-step"><div class="note"><b>His heels:</b> the starter is a jack, so the dealer scores 2 points as soon as it is turned up. That is not part of the hand count above.</div></div>';
+    const r=$('shResult'); r.innerHTML=h; r.classList.add('show');
+    if(window.matchMedia('(max-width:699px)').matches) r.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+  function openHelper(){ shBuild(); $('helperOv').classList.add('show'); shRender(false); }
+  function closeHelper(){ $('helperOv').classList.remove('show'); }
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape' && $('helperOv').classList.contains('show')) closeHelper(); });
   function openVideo(){$('videoOv').classList.add('show');$('demoVideo').play();}
   function closeVideo(){const v=$('demoVideo');v.pause();v.currentTime=0;$('videoOv').classList.remove('show');}
   let deferredInstall=null;
@@ -1539,6 +1778,7 @@
   const gb=$('gateBtn'); if(gb) gb.addEventListener('click',passGate);
 
   loadTheme();
+  if(location.hash==='#helper') openHelper();
   loadViewPref();
   buildFields();
   if(loadState()){
