@@ -1747,16 +1747,23 @@
   const isStandalone=()=>window.matchMedia('(display-mode: standalone)').matches||navigator.standalone===true;
   window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredInstall=e;updateInstallUI();});
   window.addEventListener('appinstalled',()=>{deferredInstall=null;updateInstallUI();});
+  async function offlineReady(){
+    try{
+      if(!(navigator.serviceWorker&&navigator.serviceWorker.controller&&window.caches)) return false;
+      return !!(await caches.match(new URL('./',location.href).href));
+    }catch(e){return false;}
+  }
   function updateInstallUI(){
     const btn=$('installNowBtn'), st=$('offlineStatus'), choices=document.querySelector('#inst-os .inst-choices');
     if(!btn||!st) return;
     const installed=isStandalone();
     btn.style.display=(deferredInstall&&!installed)?'':'none';
     if(choices) choices.style.display=(installed||deferredInstall)?'none':'';
-    const ready=!!(navigator.serviceWorker&&navigator.serviceWorker.controller);
-    st.innerHTML=installed?'&#10003; Installed &mdash; works fully offline.'
-      :ready?'&#10003; Offline-ready &mdash; this page is saved on your device and works without internet.'
-      :'Preparing offline copy&hellip; reload once if this stays here.';
+    offlineReady().then(ready=>{
+      st.innerHTML=installed?(ready?'&#10003; Installed &mdash; works fully offline.':'Installed. Open it once while online to finish saving it for offline use.')
+        :ready?'&#10003; Offline-ready &mdash; this page is saved on your device and works without internet.'
+        :'Preparing offline copy&hellip; reload once if this stays here.';
+    });
   }
   async function installNow(){
     if(!deferredInstall) return;
