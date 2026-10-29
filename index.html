@@ -410,6 +410,64 @@
     background:transparent;color:var(--text);border:2px solid var(--gold);border-radius:11px;padding:10px 12px;font-size:1.05rem;cursor:pointer;}
   .h-confirm:active{transform:scale(.98);}
   .h-confirm.done{background:var(--gold);color:#241a06;border-color:var(--gold);}
+  /* ---- one-page round rows: lock in, helper, reached badge ---- */
+  .h-step{gap:5px;padding:4px 6px;}
+  .h-step .hlbl{flex:0 0 50px;width:50px;font-size:.86rem;letter-spacing:.01em;}
+  .h-step .hlbl small{display:block;font-family:'Bitter',Georgia,serif;font-size:.6rem;letter-spacing:0;text-transform:none;opacity:.8;line-height:1.15;margin-top:2px;}
+  .h-step .hsbtn{min-width:0;}
+  .h-step .hsbtn.minus{flex:0 0 38px;}
+  .h-step .hval{width:36px;flex:0 0 36px;font-size:1.6rem;padding:8px 0;}
+  .h-step .hsbtn:disabled{opacity:.32;cursor:default;transform:none;}
+  .h-steprow.off .hlbl,.h-steprow.off .hval{opacity:.5;}
+  .h-lock,.h-helper{flex:0 0 58px;height:50px;border-radius:8px;font-family:'Oswald',sans-serif;font-weight:700;font-size:.7rem;letter-spacing:.02em;
+    text-transform:uppercase;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;cursor:pointer;padding:0;-webkit-user-select:none;user-select:none;}
+  .h-lock{background:var(--gold);color:#241a06;border:1.5px solid var(--gold);}
+  .h-lock.on{background:transparent;color:var(--cream);border-color:rgba(244,239,228,.5);}
+  .h-helper{background:transparent;color:var(--cream);border:1.5px dashed rgba(244,239,228,.4);font-weight:600;}
+  .h-helper:disabled{opacity:.32;cursor:default;}
+  .h-tags{display:flex;align-items:center;gap:5px;}
+  .h-reached{font-family:'Oswald',sans-serif;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);border:1.5px solid var(--gold);border-radius:6px;padding:0 7px;white-space:nowrap;}
+  .h-note{text-align:center;font-size:.72rem;color:var(--gold);margin-top:3px;}
+  .h-confirm:disabled,.h-next:disabled{opacity:.5;cursor:default;}
+  @media (max-height:800px){
+    .h-step .hsbtn,.h-lock,.h-helper{height:44px;}
+    .h-step .hval{padding:5px 0;font-size:1.5rem;}
+    .h-tally{display:none;}
+    .h-head{margin-bottom:3px;}
+    .h-score{font-size:2.6rem;}
+    .half{padding:6px 12px;}
+    .h-steps{gap:5px;}
+  }
+  @media (max-height:700px){
+    .h-step .hsbtn,.h-lock,.h-helper{height:38px;}
+    .h-step .hval{padding:3px 0;font-size:1.35rem;}
+    .h-name{font-size:1.25rem;} .h-score{font-size:2.2rem;}
+    .h-step .hlbl small{display:none;}
+    .h-go,.h-next,.h-confirm{padding:7px 12px;font-size:1rem;}
+    .h-note{display:none;}
+  }
+  /* history */
+  .hx-tiles{display:flex;gap:10px;margin-bottom:12px;width:100%;}
+  .hx-tile{flex:1;border:1.5px solid var(--line);border-radius:12px;padding:8px 10px;text-align:left;}
+  .hx-tile.p1{border-color:var(--p1);background:var(--p1-tint);} .hx-tile.p2{border-color:var(--p2);background:var(--p2-tint);}
+  .hx-tn{font-family:'Oswald',sans-serif;font-weight:600;font-size:.9rem;letter-spacing:.1em;text-transform:uppercase;}
+  .hx-tile.p1 .hx-tn,.hx-tile.p1 .hx-tv{color:var(--p1);} .hx-tile.p2 .hx-tn,.hx-tile.p2 .hx-tv{color:var(--p2);}
+  .hx-tv{font-family:'Oswald',sans-serif;font-weight:700;font-size:2.4rem;line-height:1.05;}
+  .hx-tl{font-size:.72rem;opacity:.75;}
+  .hx-chart{border:1px solid var(--line);border-radius:12px;padding:8px 6px 6px;background:var(--inset-soft);margin-bottom:12px;width:100%;box-sizing:border-box;}
+  .hx-chart svg{display:block;width:100%;height:auto;color:var(--text);}
+  .hx-cl{font-family:'Oswald',sans-serif;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;opacity:.75;text-align:left;padding:0 6px 4px;}
+  .hx-round{border:1px solid var(--line);border-radius:12px;padding:8px 12px;margin-bottom:8px;background:var(--inset-soft);text-align:left;width:100%;box-sizing:border-box;}
+  .hx-rh{display:flex;justify-content:space-between;align-items:baseline;font-family:'Oswald',sans-serif;font-weight:600;font-size:.9rem;letter-spacing:.1em;text-transform:uppercase;}
+  .hx-rd{font-family:'Bitter',Georgia,serif;font-size:.72rem;letter-spacing:0;text-transform:none;font-weight:400;opacity:.78;}
+  .hx-line{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:5px;}
+  .hx-ln{font-size:.8rem;min-width:0;}
+  .hx-ln b{font-family:'Oswald',sans-serif;font-weight:600;font-size:.9rem;letter-spacing:.08em;text-transform:uppercase;margin-right:4px;}
+  .hx-ln b.p1,.hx-tot.p1{color:var(--p1);} .hx-ln b.p2,.hx-tot.p2{color:var(--p2);}
+  .hx-lp{display:flex;align-items:center;gap:8px;flex:none;}
+  .hx-add{font-family:'Oswald',sans-serif;font-weight:600;font-size:1rem;color:var(--gold);}
+  .hx-tot{min-width:34px;text-align:center;font-family:'Oswald',sans-serif;font-weight:700;font-size:1rem;border-radius:6px;padding:1px 6px;background:var(--inset);}
+  .sh-use{width:100%;margin:6px 0 10px;}
   .h-next:disabled{opacity:.4;background:var(--btn);color:var(--text);cursor:default;font-size:.78rem;letter-spacing:.05em;}
   /* pressed state: bold gold fill + inset, held briefly */
   .sbtn.pressed,.hsbtn.pressed{
@@ -454,7 +512,8 @@
   .help-sec p b{color:var(--text);}
   .help-tag{display:inline-block;background:var(--btn);border:1px solid var(--btn-border);border-radius:6px;
     padding:0 7px;font-family:'Oswald',sans-serif;font-size:.88rem;color:var(--gold);}
-  #historyBody{max-height:60vh;overflow-y:auto;margin-bottom:14px;}
+  #historyBody{max-height:calc(100vh - 180px);max-height:calc(100dvh - 180px);overflow-y:auto;-webkit-overflow-scrolling:touch;margin-bottom:14px;}
+  #historyBody{width:100%;}
   .hist-row{display:flex;align-items:center;font-family:'Oswald',sans-serif;font-size:.95rem;
     padding:8px 6px;border-bottom:1px solid var(--line);gap:4px;}
   .hist-head{font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;opacity:.7;position:sticky;top:0;background:var(--bg);}
@@ -544,6 +603,14 @@
   </div>
 
   <!-- WIN CELEBRATION -->
+  <div class="overlay" id="firstOv">
+    <h2>Both are past <span id="foTarget">121</span></h2>
+    <p>Only the player who got there first wins.<br>Points are scored in this order: pegging, the opponent's hand, the dealer's hand, then the crib.</p>
+    <p id="foSuggest" style="font-size:.9rem;opacity:.85;"></p>
+    <button class="go" id="foBtn1" onclick="firstChoose(1)"></button>
+    <button class="go" id="foBtn2" onclick="firstChoose(2)"></button>
+    <button class="ghost" onclick="firstBack()">Back to scoring</button>
+  </div>
   <div class="overlay" id="win">
     <h2 id="winName"></h2>
     <p class="winbig" id="winMsg"></p>
@@ -608,15 +675,15 @@
       </div>
       <div class="help-sec">
         <div class="help-h">&#128290; Scoring a round</div>
-        <p>Each round has steps in cribbage order: <b>Pegging</b> (the play), then the <b>Non-dealer's hand</b>, the <b>Dealer's hand</b>, and the <b>Crib</b> (counts for the dealer). Enter points for each using the buttons.</p>
+        <p>Each side shows all its rows on one screen: the dealer has <b>Pegging, Hand and Crib</b>; the other player has <b>Pegging and Hand</b>. Score the play on the <b>Pegging</b> row, then press <b>Lock in</b> &mdash; that opens the Hand (and Crib) row. Press <b>Unlock</b> any time to fix pegging; your hand and crib points are kept. Hand and crib rows never lock. Counting order is shown on each row: the other player's hand 1st, the dealer's hand 2nd, the crib 3rd.</p>
       </div>
       <div class="help-sec">
         <div class="help-h">&#10133; Entering points</div>
-        <p>Use <b>&minus;1</b>, <b>+1</b>, <b>+2</b> on each field. <b>Press and hold +1 or +2 for 1 second</b> to open a menu of bigger values (3&ndash;12, plus 16, 20, 24, 29). A small tally line shows each value you added, e.g. <span class="help-tag">+1 +2 +1</span>.</p>
+        <p>Use <b>&minus;1</b>, <b>+1</b>, <b>+2</b> on each field. <b>Press and hold +1 or +2 for 1 second</b> to open a menu of bigger values (3&ndash;12, plus 16, 20, 24, 29). A small tally line shows each value you added, e.g. <span class="help-tag">+1 +2 +1</span>. On a Hand or Crib row, tap <b>Helper</b> to count the cards with the Score Helper and put the score straight into that row.</p>
       </div>
       <div class="help-sec">
         <div class="help-h">&#9193; Next round</div>
-        <p>The top shows live running totals. Tap <b>Next round</b> to bank the round &mdash; the dealer alternates automatically and a <b>Round N</b> banner appears. The score and new dealer are announced aloud.</p>
+        <p>The other player presses <b>Confirm my score</b> once pegging is locked and their hand is in. Then the dealer (with pegging locked) taps <b>Next round</b> to bank the round &mdash; the dealer alternates automatically and a <b>Round N</b> banner appears. The score and new dealer are announced aloud.</p>
       </div>
       <div class="help-sec">
         <div class="help-h">&#128241; Two layouts</div>
@@ -624,11 +691,11 @@
       </div>
       <div class="help-sec">
         <div class="help-h">&#9989; Tabletop confirm</div>
-        <p>In tabletop, each player moves through <b>Pegging &rarr; Counting</b> on their own side. The non-dealer taps <b>Confirm my score</b> when done; only then can the dealer advance the round. The non-dealer can un-confirm to edit.</p>
+        <p>The non-dealer taps <b>Confirm my score</b> when done; only then can the dealer advance the round. Tap it again to edit &mdash; changing the non-dealer's score or pegging also takes the confirmation back.</p>
       </div>
       <div class="help-sec">
         <div class="help-h">&#127942; Winning</div>
-        <p>When someone reaches the target, you're asked to confirm the winner. Confirming triggers a celebration &mdash; badge, confetti, and a fanfare. A <b>skunk</b> (loser under target&minus;30) is flagged.</p>
+        <p>Reaching the target never stops scoring: totals keep counting past it and a <b>reached</b> badge appears, so you can enter the rest of the round. Then press <b>Submit round</b>; you're asked to confirm the winner (or <b>Not yet</b> to go back and edit the round). If both players are past the target, you choose who got there first. Confirming triggers a celebration &mdash; badge, confetti, and a fanfare. A <b>skunk</b> (loser under target&minus;30) is flagged.</p>
       </div>
       <div class="help-sec">
         <div class="help-h">&#128221; History &amp; Save</div>
@@ -683,7 +750,7 @@
   <!-- HISTORY -->
   <div class="overlay" id="historyOv">
     <h2 style="font-size:1.4rem;">Round History</h2>
-    <div id="historyBody" style="width:100%;max-width:380px;"></div>
+    <div id="historyBody" style="width:100%;max-width:400px;"></div>
     <button class="ghost" onclick="closeHistory()">Back</button>
   </div>
 
@@ -794,11 +861,11 @@
       <ul>
         <li><strong>Fast scoring:</strong> tap +1 or +2, or press and hold for bigger scores like 12, 16, 20, 24 or 29.</li>
         <li><strong>Score helper:</strong> tap the four cards of a hand (or the crib) and the starter, and it adds up the points and explains each fifteen, pair, run, flush and nobs step by step. It opens over your game without changing it, and works before a game starts too.</li>
-        <li><strong>Follows the game:</strong> pegging, then the non-dealer's hand, the dealer's hand and the crib, with the dealer alternating automatically.</li>
+        <li><strong>Follows the game:</strong> pegging, the non-dealer's hand, the dealer's hand and the crib, all on one screen. Lock in pegging to open the hand rows, unlock any time to fix it, and the dealer alternates automatically.</li>
         <li><strong>Tabletop layout:</strong> the screen splits in two, so each player scores on their own side, with the top half facing the player across the table.</li>
-        <li><strong>Skunk detection:</strong> a skunk or double skunk is flagged when the game ends.</li>
+        <li><strong>Skunk detection:</strong> scoring never stops at 121, so you can enter the rest of the round; submit it, then the winner is announced and a skunk or double skunk is flagged.</li>
         <li><strong>Your rules:</strong> play to 121, 61 or any target, and set starting scores.</li>
-        <li><strong>Round history and saving:</strong> review every round and copy a text summary. Your game saves automatically on your device so you can close the app and continue later.</li>
+        <li><strong>Round history and saving:</strong> review every round with its pegging, hand and crib points and a score chart, and copy a text summary. Your game saves automatically on your device so you can close the app and continue later.</li>
         <li><strong>Private:</strong> no account, no tracking, and your scores stay on your device.</li>
       </ul>
 
@@ -856,8 +923,9 @@
   let TARGET=121, names={1:'Player 1',2:'Player 2'}, start={1:0,2:0},
       committed={1:0,2:0}, log=[], round=1, dealer=2, muted=false,
       winnerLocked=false, pendingWinner=0, view='table',
-      phase={1:'peg',2:'peg'},   // tabletop per-side sub-phase: 'peg' | 'count'
+      pegLocked={1:false,2:false}, // tabletop: each side's pegging row locked in (opens that side's hand/crib rows)
       ndConfirmed=false;         // tabletop: non-dealer confirmed their count this round
+  let lastBank=null;           // snapshot taken just before a round is submitted, so a win can be taken back
   let tallies={peg1:[],peg2:[],nd1:[],nd2:[],dh1:[],dh2:[],cr1:[],cr2:[]}; // per-field list of entered deltas
   const FIELDS=['peg1','peg2','nd1','nd2','dh1','dh2','cr1','cr2'];
   // per-player owned fields and their step meta
@@ -907,13 +975,26 @@
   }
   function step(id,d){
     if($('C_'+id).classList.contains('disabled'))return;
+    if(fieldLocked(id))return;
     recordTally(id,d);
     $(id).value=Math.max(0,(parseInt($(id).value,10)||0)+d);
     tickFor(d); buzz(Math.min(40,10+Math.abs(d)*6));
     render();
   }
+  function fieldLocked(id){
+    const pl=parseInt(id.slice(-1),10), key=id.slice(0,-1);
+    return key==='peg' ? pegLocked[pl] : !pegLocked[pl];   // pegging edits when open; hand and crib edits once pegging is locked
+  }
+  function setField(id,v){
+    if(fieldLocked(id)) return;
+    const owner=parseInt(id.slice(-1),10);
+    if(owner===(dealer===1?2:1) && ndConfirmed) ndConfirmed=false;
+    $(id).value=Math.max(0,v); tallies[id]=[Math.max(0,v)];
+    buzz(15); render();
+  }
   function setTo(id,v){
     if($('C_'+id).classList.contains('disabled'))return;
+    if(fieldLocked(id))return;
     const owner=parseInt(id.slice(-1),10), nonDealer=dealer===1?2:1;
     if(owner===nonDealer && ndConfirmed) ndConfirmed=false;
     recordTally(id,v);
@@ -1135,10 +1216,6 @@
     FIELDS.forEach(id=>{const t=$('T_'+id); if(t) t.textContent=tallyStr(id);});
     layoutRoles();
     if(view==='table') renderTable();
-    if(!winnerLocked && !$('winConfirm').classList.contains('show')){
-      if(g[1]>=TARGET) triggerWinConfirm(1);
-      else if(g[2]>=TARGET) triggerWinConfirm(2);
-    }
     saveState();
   }
   const clearInputs=()=>{FIELDS.forEach(id=>$(id).value='');tallies={peg1:[],peg2:[],nd1:[],nd2:[],dh1:[],dh2:[],cr1:[],cr2:[]};};
@@ -1152,8 +1229,52 @@
     $('winConfirm').classList.add('show');
     dingNext();
   }
-  function dismissWinConfirm(){$('winConfirm').classList.remove('show');}
+  function dismissWinConfirm(){
+    $('winConfirm').classList.remove('show');
+    if(lastBank){ restoreRound(lastBank); lastBank=null; }   // back to the round exactly as submitted
+  }
+  /* ---------- round snapshot (so a submitted round can be taken back) ---------- */
+  function snapshotRound(){
+    return {committed:{...committed}, logLen:log.length, entries:FIELDS.map(id=>$(id).value),
+            tallies:JSON.parse(JSON.stringify(tallies)), pegLocked:{...pegLocked}, ndConfirmed, round, dealer};
+  }
+  function restoreRound(sn){
+    committed={...sn.committed}; log.length=sn.logLen;
+    FIELDS.forEach((id,i)=>{$(id).value=sn.entries[i];});
+    tallies=sn.tallies; pegLocked={...sn.pegLocked}; ndConfirmed=sn.ndConfirmed;
+    render();
+  }
+  /* both players past the target in one round: ask who got there first */
+  function suggestFirst(sn){
+    const nd=sn.dealer===1?2:1;
+    const ev=id=>parseInt(sn.entries[FIELDS.indexOf(id)],10)||0;
+    const base=pl=>sn.committed[pl]+ev('peg'+pl);
+    const b1=base(1)>=TARGET, b2=base(2)>=TARGET;
+    if(b1&&!b2) return {p:1,why:'reached it while pegging'};
+    if(b2&&!b1) return {p:2,why:'reached it while pegging'};
+    if(b1&&b2) return {p:0,why:''};
+    return {p:nd,why:'reached it counting their hand, which is counted first'};
+  }
+  function openFirstDialog(){
+    const sg=lastBank?suggestFirst(lastBank):{p:0,why:''};
+    $('foTarget').textContent=TARGET;
+    $('foSuggest').textContent=sg.p?(nameOf(sg.p)+' '+sg.why+'.'):('Both passed '+TARGET+' while pegging, so choose who got there first.');
+    [1,2].forEach(pl=>{const b=$('foBtn'+pl); b.textContent=nameOf(pl)+' got there first'; b.className=(sg.p===pl||!sg.p)?'go':'ghost';});
+    $('firstOv').classList.add('show');
+    dingNext();
+  }
+  function firstChoose(pl){
+    $('firstOv').classList.remove('show');
+    lastBank=null;
+    pendingWinner=pl;
+    confirmWinner();
+  }
+  function firstBack(){
+    $('firstOv').classList.remove('show');
+    if(lastBank){ restoreRound(lastBank); lastBank=null; }
+  }
   function confirmWinner(){
+    lastBank=null;
     // bank the in-progress round into committed first
     const lr=liveRound();
     if(lr[1]||lr[2]){
@@ -1181,24 +1302,36 @@
   }
 
   /* ---------- commit / next round ---------- */
+  function roundParts(pl){
+    const isD=dealer===pl;
+    return {peg:val('peg'+pl), hand:val((isD?'dh':'nd')+pl), crib:isD?val('cr'+pl):0};
+  }
   function commitRound(){
     if(winnerLocked)return;
-    if($('winConfirm').classList.contains('show'))return;
-    // tabletop: non-dealer must confirm their count before the round can advance
-    if(view==='table' && !ndConfirmed){
-      speak(nameOf(dealer===1?2:1)+' must confirm their score first');
-      buzz(40); return;
+    if($('winConfirm').classList.contains('show')||$('firstOv').classList.contains('show'))return;
+    if(view==='table'){
+      // dealer must have locked pegging, and the non-dealer must have confirmed their count
+      if(!pegLocked[dealer]){ speak('Lock in your pegging first'); buzz(40); return; }
+      if(!ndConfirmed){
+        speak(nameOf(dealer===1?2:1)+' must confirm their score first');
+        buzz(40); return;
+      }
     }
     const lr=liveRound();
     if(lr[1]===0 && lr[2]===0){speak('Enter some points first');return;}
+    lastBank=snapshotRound();
+    const parts={1:roundParts(1),2:roundParts(2)};
     committed[1]+=lr[1];committed[2]+=lr[2];
-    log.push({round,dealer,pts:{...lr},totalAfter:{...committed}});
+    log.push({round,dealer,pts:{...lr},parts,totalAfter:{...committed}});
     clearInputs();
+    pegLocked={1:false,2:false};
+    ndConfirmed=false;
+    // the game never stops mid-round at the target: the winner is only decided here, after the round is submitted
+    if(committed[1]>=TARGET && committed[2]>=TARGET){render();openFirstDialog();return;}
     if(committed[1]>=TARGET){render();triggerWinConfirm(1);return;}
     if(committed[2]>=TARGET){render();triggerWinConfirm(2);return;}
+    lastBank=null;
     round++;dealer=dealer===1?2:1;
-    phase={1:'peg',2:'peg'};
-    ndConfirmed=false;
     render();
     dingNext();
     showRoundBanner();
@@ -1282,8 +1415,9 @@
     }else{
       log.forEach(r=>{
         t+='Round '+r.round+' — dealer '+nameOf(r.dealer)+'\n';
-        t+='  '+n1+': +'+r.pts[1]+'  →  '+r.totalAfter[1]+'\n';
-        t+='  '+n2+': +'+r.pts[2]+'  →  '+r.totalAfter[2]+'\n';
+        const pp=pl=>r.parts?(' (peg '+r.parts[pl].peg+', hand '+r.parts[pl].hand+(r.parts[pl].crib?', crib '+r.parts[pl].crib:'')+')'):'';
+        t+='  '+n1+': +'+r.pts[1]+pp(1)+'  →  '+r.totalAfter[1]+'\n';
+        t+='  '+n2+': +'+r.pts[2]+pp(2)+'  →  '+r.totalAfter[2]+'\n';
       });
     }
     return t;
@@ -1293,22 +1427,39 @@
 
   /* ---------- read-only history ---------- */
   function openHistory(){
+    const sumP=(r,pl)=>r.pts[pl];
+    const partsText=(r,pl)=>r.parts?('peg '+r.parts[pl].peg+' · hand '+r.parts[pl].hand+(r.parts[pl].crib>0?' · crib '+r.parts[pl].crib:'')):'round points';
     let h='';
+    // summary tiles
+    h+='<div class="hx-tiles">'
+      +[1,2].map(pl=>'<div class="hx-tile p'+pl+'"><div class="hx-tn">'+nameOf(pl)+'</div><div class="hx-tv">'+committed[pl]+'</div><div class="hx-tl">'+Math.max(0,TARGET-committed[pl])+' to go</div></div>').join('')
+      +'</div>';
+    // line chart of both scores after every round
+    const pts1=[start[1]].concat(log.map(r=>r.totalAfter[1])), pts2=[start[2]].concat(log.map(r=>r.totalAfter[2]));
+    const ymax=Math.max(TARGET,...pts1,...pts2);
+    const W=346, X0=10, Y0=8, H=140, n=Math.max(12,pts1.length-1);
+    const xAt=i=>X0+i*(W-10)/n, yAt=v=>Y0+H-H*Math.min(v,ymax)/ymax;
+    const line=pts=>pts.map((v,i)=>xAt(i).toFixed(1)+','+yAt(v).toFixed(1)).join(' ');
+    const ref=(v,label,strong)=>v>0&&v<=ymax?'<line x1="'+X0+'" x2="'+(X0+W)+'" y1="'+yAt(v).toFixed(1)+'" y2="'+yAt(v).toFixed(1)+'" stroke="'+(strong?'var(--gold)':'currentColor')+'" stroke-opacity="'+(strong?'.8':'.35')+'" stroke-dasharray="3 4"/><text x="'+(X0+4)+'" y="'+(yAt(v)+11).toFixed(1)+'" fill="'+(strong?'var(--gold)':'currentColor')+'" fill-opacity="'+(strong?'1':'.7')+'" font-size="9" font-family="Oswald,sans-serif" letter-spacing="1">'+label+'</text>':'';
+    h+='<div class="hx-chart"><div class="hx-cl">Score by round</div>'
+      +'<svg viewBox="0 0 366 156" role="img" aria-label="Line chart of each player\'s score after every round">'
+      +ref(TARGET,TARGET+' WINS',true)+ref(TARGET-30,(TARGET-30)+' SKUNK LINE')+ref(Math.ceil(TARGET*0.5),Math.ceil(TARGET*0.5)+' DOUBLE SKUNK')
+      +'<line x1="'+X0+'" x2="'+(X0+W)+'" y1="'+(Y0+H)+'" y2="'+(Y0+H)+'" stroke="currentColor" stroke-opacity=".3"/>'
+      +'<polyline points="'+line(pts1)+'" fill="none" stroke="var(--p1)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>'
+      +'<polyline points="'+line(pts2)+'" fill="none" stroke="var(--p2)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>'
+      +'<circle cx="'+xAt(pts1.length-1).toFixed(1)+'" cy="'+yAt(pts1[pts1.length-1]).toFixed(1)+'" r="4.5" fill="var(--p1)"/>'
+      +'<circle cx="'+xAt(pts2.length-1).toFixed(1)+'" cy="'+yAt(pts2[pts2.length-1]).toFixed(1)+'" r="4.5" fill="var(--p2)"/>'
+      +'</svg></div>';
+    // every round, newest first
     if(!log.length){
-      h='<p style="opacity:.6;font-size:.95rem;">No completed rounds yet.</p>';
+      h+='<p style="opacity:.6;font-size:.95rem;">No completed rounds yet.</p>';
     }else{
-      h='<div class="hist-row hist-head">'
-        +'<span class="hc-r">#</span><span class="hc-d">Dealer</span>'
-        +'<span class="hc-p p1">'+names[1]+'</span>'
-        +'<span class="hc-p p2">'+names[2]+'</span>'
-        +'<span class="hc-t">Totals</span></div>';
-      log.forEach(r=>{
-        h+='<div class="hist-row">'
-          +'<span class="hc-r">'+r.round+'</span>'
-          +'<span class="hc-d">'+nameOf(r.dealer)+'</span>'
-          +'<span class="hc-p p1">+'+r.pts[1]+'</span>'
-          +'<span class="hc-p p2">+'+r.pts[2]+'</span>'
-          +'<span class="hc-t">'+r.totalAfter[1]+'\u2013'+r.totalAfter[2]+'</span></div>';
+      h+='<div class="hx-cl" style="margin:2px 2px 6px">Every round, newest first</div>';
+      log.slice().reverse().forEach(r=>{
+        h+='<div class="hx-round"><div class="hx-rh"><span>Round '+r.round+'</span><span class="hx-rd">'+nameOf(r.dealer)+' dealt</span></div>'
+          +[1,2].map(pl=>'<div class="hx-line"><span class="hx-ln"><b class="p'+pl+'">'+nameOf(pl)+'</b> '+partsText(r,pl)+'</span>'
+            +'<span class="hx-lp"><span class="hx-add">+'+sumP(r,pl)+'</span><span class="hx-tot p'+pl+'">'+r.totalAfter[pl]+'</span></span></div>').join('')
+          +'</div>';
       });
     }
     $('historyBody').innerHTML=h;
@@ -1359,7 +1510,7 @@
       FIELDS.forEach(id=>entries[id]=$(id).value);
       const data={
         v:1, TARGET, names, start, committed, log,
-        round, dealer, winnerLocked, pendingWinner, view, phase, ndConfirmed, tallies, entries
+        round, dealer, winnerLocked, pendingWinner, view, pegLocked, ndConfirmed, tallies, entries
       };
       localStorage.setItem(GAME_KEY,JSON.stringify(data));
     }catch(e){}
@@ -1376,7 +1527,8 @@
       committed=data.committed; log=data.log||[];
       round=data.round; dealer=data.dealer;
       winnerLocked=!!data.winnerLocked; pendingWinner=data.pendingWinner||0;
-      view='table'; phase=data.phase||{1:'peg',2:'peg'};
+      view='table';
+      pegLocked=data.pegLocked||{1:!!(data.phase&&data.phase[1]==='count'),2:!!(data.phase&&data.phase[2]==='count')};
       ndConfirmed=!!data.ndConfirmed;
       if(data.tallies) tallies=data.tallies;
       // restore in-progress entry fields
@@ -1442,7 +1594,7 @@
     const s1=parseInt($('setSc1').value,10)||0,s2=parseInt($('setSc2').value,10)||0;
     let t=parseInt($('tgtInput').value,10);if(isNaN(t)||t<1)t=121;
     TARGET=t;start={1:s1,2:s2};committed={1:s1,2:s2};
-    round=1;dealer=setupDealer;log=[];winnerLocked=false;pendingWinner=0;phase={1:'peg',2:'peg'};ndConfirmed=false;
+    round=1;dealer=setupDealer;log=[];winnerLocked=false;pendingWinner=0;pegLocked={1:false,2:false};ndConfirmed=false;lastBank=null;
     $('t1').classList.remove('winner');$('t2').classList.remove('winner');
     $('setup').classList.remove('show');
     gameActive=true;
@@ -1465,74 +1617,79 @@
   function toggleView(){ /* tabletop is the only layout now */ view='table'; document.body.classList.add('tabletop'); renderTable(); render(); }
   function loadViewPref(){ view='table'; document.body.classList.add('tabletop'); }
   const fid=(key,p)=>key+p;
-  function setPhase(p,ph){phase[p]=ph;renderTable();}
+  function toggleLock(p){
+    pegLocked[p]=!pegLocked[p];
+    if(p!==dealer) ndConfirmed=false;          // the non-dealer changed their score: confirm again
+    buzz(15); renderTable(); saveState();
+  }
+  const LOCK_SVG='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>';
+  const OPEN_SVG='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 7.5-2"></path></svg>';
+  const CALC_SVG='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"></rect><path d="M8 7h8M8 12h.01M12 12h.01M16 12h.01M8 16h.01M12 16h.01M16 16h.01"></path></svg>';
 
-  function stepRowHTML(p,key,label){
+  function stepRowHTML(p,key,label,sub){
     const id=fid(key,p);
     const v=parseInt($(id).value,10)||0;
     const ts=tallyStr(id);
-    return '<div class="h-steprow">'
+    const off=fieldLocked(id), dis=off?' disabled':'';
+    const isPeg=key==='peg';
+    const side=isPeg
+      ? '<button class="h-lock'+(pegLocked[p]?' on':'')+'" data-lock="'+p+'" aria-label="'+(pegLocked[p]?'Unlock pegging':'Lock in pegging')+'">'+(pegLocked[p]?LOCK_SVG+'Unlock':OPEN_SVG+'Lock in')+'</button>'
+      : '<button class="h-helper" data-helper="'+id+'"'+dis+' aria-label="Count this hand with the score helper">'+CALC_SVG+'Helper</button>';
+    return '<div class="h-steprow'+(off?' off':'')+'">'
       +'<div class="h-step'+(p===2?' p2row':'')+'">'
-      +'<span class="hlbl">'+label+'</span>'
-      +'<button class="hsbtn minus" data-id="'+id+'" data-d="-1">&minus;1</button>'
+      +'<span class="hlbl">'+label+'<small>'+sub+'</small></span>'
+      +'<button class="hsbtn minus" data-id="'+id+'" data-d="-1"'+dis+' aria-label="Subtract 1">&minus;1</button>'
       +'<span class="hval">'+v+'</span>'
-      +'<button class="hsbtn" data-id="'+id+'" data-d="1">+1</button>'
-      +'<button class="hsbtn hasmore" data-id="'+id+'" data-d="2">+2</button>'
+      +'<button class="hsbtn" data-id="'+id+'" data-d="1"'+dis+' aria-label="Add 1">+1</button>'
+      +'<button class="hsbtn hasmore" data-id="'+id+'" data-d="2"'+dis+' aria-label="Add 2">+2</button>'
+      +side
       +'</div>'
       +'<div class="h-tally'+(ts?'':' empty')+'">'+ts+'</div>'
       +'</div>';
   }
 
   function halfHTML(p){
-    const isDealer=dealer===p;
+    const isDealer=dealer===p, nd=dealer===1?2:1;
     const g=grand(),lr=liveRound();
-    const ph=phase[p];
+    const anyReached=g[1]>=TARGET||g[2]>=TARGET;
+    const lockedP=pegLocked[p];
     // ---- header: own name + own score only ----
     let h='<div class="h-head'+(isDealer?' dealer':'')+'">'
       +'<div class="h-id">'
         +'<span class="h-name p'+p+'">'+nameOf(p)+'</span>'
-        +(isDealer?'<span class="h-dealtag">Dealer</span>':'<span class="h-dealtag ghost">&nbsp;</span>')
+        +'<span class="h-tags">'
+          +(isDealer?'<span class="h-dealtag">Dealer</span>':'<span class="h-dealtag ghost">&nbsp;</span>')
+          +(g[p]>=TARGET?'<span class="h-reached">'+TARGET+(g[p]>TARGET?' passed':' reached')+'</span>':'')
+        +'</span>'
       +'</div>'
       +'<div class="h-score p'+p+'">'+g[p]+(lr[p]>0?' <span class="live">+'+lr[p]+'</span>':'')+'</div>'
       +'</div>';
 
-    // ---- phase tabs ----
-    h+='<div class="h-phasebar">'
-      +'<span class="ph-pill'+(ph==='peg'?' on':'')+'">Pegging</span>'
-      +'<span class="ph-arrow">&rarr;</span>'
-      +'<span class="ph-pill'+(ph==='count'?' on':'')+'">Counting</span>'
-      +'</div>';
-
+    // ---- one page: pegging row, hand row, and (dealer only) crib row ----
     h+='<div class="h-steps">';
-    if(ph==='peg'){
-      h+=stepRowHTML(p,'peg','Pegging');
-    }else{
-      // counting: everyone counts their hand; dealer also counts crib
-      h+=stepRowHTML(p,(isDealer?'dh':'nd'),'Hand');
-      if(isDealer) h+=stepRowHTML(p,'cr','Crib');
-    }
+    h+=stepRowHTML(p,'peg','Pegging',lockedP?'locked':'the play');
+    h+=stepRowHTML(p,isDealer?'dh':'nd','Hand',lockedP?(isDealer?'counts 2nd':'counts 1st'):'lock pegging first');
+    if(isDealer) h+=stepRowHTML(p,'cr','Crib',lockedP?'counts 3rd':'lock pegging first');
     h+='</div>';
 
-    // ---- nav / commit ----
+    // ---- confirm / submit ----
     h+='<div class="h-nav">';
     if(!winnerLocked){
-      if(ph==='peg'){
-        h+='<span></span>'
-          +'<button class="h-go" data-phase="count" data-p="'+p+'">To counting &rarr;</button>';
-      }else{
-        h+='<button class="h-back" data-phase="peg" data-p="'+p+'">&larr; Pegging</button>';
-        if(isDealer){
-          // dealer can only advance once non-dealer confirms
-          h+='<button class="h-next" data-next="1"'+(ndConfirmed?'':' disabled')+'>'
-            +(ndConfirmed?'Next round &rarr;':'Waiting for '+nameOf(dealer===1?2:1)+'\u2026')+'</button>';
+      if(isDealer){
+        // dealer advances once their pegging is locked and the non-dealer has confirmed
+        if(lockedP && ndConfirmed){
+          h+='<button class="h-next" data-next="1">'+(anyReached?'Submit round':'Next round &rarr;')+'</button>';
         }else{
-          // non-dealer: confirm / un-confirm toggle
-          h+='<button class="h-confirm'+(ndConfirmed?' done':'')+'" data-confirm="1">'
-            +(ndConfirmed?'\u2713 Confirmed \u2014 tap to edit':'Confirm my score')+'</button>';
+          h+='<button class="h-next" disabled>'+(!lockedP?'Lock in pegging first':'Waiting for '+nameOf(nd)+'…')+'</button>';
         }
+      }else{
+        h+='<button class="h-confirm'+(ndConfirmed?' done':'')+'" data-confirm="1"'+(lockedP?'':' disabled')+'>'
+          +(ndConfirmed?'✓ Confirmed — tap to edit':(lockedP?'Confirm my score':'Lock in pegging first'))+'</button>';
       }
     }
     h+='</div>';
+    if(!winnerLocked && isDealer && anyReached && lockedP && ndConfirmed)
+      h+='<div class="h-note">Keep entering points, then submit to announce the winner</div>';
     return h;
   }
 
@@ -1554,8 +1711,8 @@
     root.querySelectorAll('.hsbtn').forEach(btn=>{
       const id=btn.dataset.id, d=+btn.dataset.d;
       let t=null,fired=false;
-      const start=()=>{fired=false; if(d>0) t=setTimeout(()=>{fired=true;buzz(30);openPopCentered(id,rotated);},1000);};
-      const end=e=>{clearTimeout(t); if(!fired){
+      const start=()=>{fired=false; if(btn.disabled)return; if(d>0) t=setTimeout(()=>{fired=true;buzz(30);openPopCentered(id,rotated);},1000);};
+      const end=e=>{clearTimeout(t); if(btn.disabled)return; if(!fired){
         const owner=parseInt(id.slice(-1),10);
         if(owner===nonDealer && ndConfirmed){ ndConfirmed=false; }
         step(id,d); flashAfterRender(id,d);
@@ -1567,11 +1724,14 @@
       btn.addEventListener('mouseup',end);
       btn.addEventListener('mouseleave',()=>clearTimeout(t));
     });
-    root.querySelectorAll('.h-go,.h-back').forEach(b=>{
-      b.addEventListener('click',()=>setPhase(+b.dataset.p,b.dataset.phase));
+    root.querySelectorAll('.h-lock').forEach(b=>{
+      b.addEventListener('click',()=>toggleLock(+b.dataset.lock));
+    });
+    root.querySelectorAll('.h-helper').forEach(b=>{
+      b.addEventListener('click',()=>{ if(!b.disabled) openHelper(b.dataset.helper); });
     });
     const cf=root.querySelector('.h-confirm');
-    if(cf) cf.addEventListener('click',()=>{ ndConfirmed=!ndConfirmed; buzz(15); renderTable(); saveState(); });
+    if(cf) cf.addEventListener('click',()=>{ if(cf.disabled)return; ndConfirmed=!ndConfirmed; buzz(15); renderTable(); saveState(); });
     const nb=root.querySelector('.h-next');
     if(nb && !nb.disabled) nb.addEventListener('click',commitRound);
   }
@@ -1667,7 +1827,7 @@
   }
   /* @@engine-end */
 
-  const shState={slots:[null,null,null,null,null],active:-1,crib:false,built:false};
+  const shState={slots:[null,null,null,null,null],active:-1,crib:false,built:false,fill:null,total:0};
   const shCardId=c=>c.s+c.r;
   const shIsRed=c=>c.s==='H'||c.s==='D';
   function shChip(c){return '<span class="sh-chip'+(shIsRed(c)?' red':'')+'">'+shLabel(c)+'</span>';}
@@ -1723,7 +1883,9 @@
   function shCalculate(){
     const st=shState; if(st.slots.some(c=>!c)) return;
     const res=shScore(st.slots.slice(0,4),st.slots[4],st.crib);
+    st.total=res.total;
     let h='<div class="sh-total"><div class="n">'+res.total+'</div><div class="t">points in the '+(res.isCrib?'crib':'hand')+'</div></div>';
+    if(st.fill) h+='<button class="go sh-use" onclick="shUseScore()">Use '+res.total+' for '+nameOf(parseInt(st.fill.slice(-1),10))+'\'s '+(st.fill.slice(0,2)==='cr'?'crib':'hand')+'</button>';
     h+='<div class="sh-note-head"><a href="#" onclick="document.querySelector(\'#helperOv .sh-body\').scrollTo({top:0,behavior:\'smooth\'});return false;" style="color:var(--gold)">&uarr; Change cards</a></div>';
     h+='<div class="sh-note-head">Hand: '+st.slots.slice(0,4).map(shChip).join('')+' &nbsp;Starter: '+shChip(st.slots[4])+'</div>';
     res.steps.forEach((sp,i)=>{
@@ -1738,7 +1900,21 @@
     const r=$('shResult'); r.innerHTML=h; r.classList.add('show');
     if(window.matchMedia('(max-width:699px)').matches) r.scrollIntoView({behavior:'smooth',block:'start'});
   }
-  function openHelper(){ shBuild(); $('helperOv').classList.add('show'); shRender(false); }
+  function openHelper(fillId){
+    shBuild();
+    // opened from a Hand or Crib row: count the cards, then put the score straight into that row
+    shState.fill=(typeof fillId==='string'&&fillId)?fillId:null;
+    if(shState.fill){ shState.crib=shState.fill.slice(0,2)==='cr'; }
+    $('helperOv').classList.add('show'); shRender(true);
+  }
+  function shUseScore(){
+    const id=shState.fill; if(!id) return;
+    setField(id,shState.total);
+    // the score has been used: the next time the helper opens it starts blank
+    shState.slots=[null,null,null,null,null]; shState.active=-1; shState.crib=false; shState.fill=null; shState.total=0;
+    shRender(true);
+    closeHelper();
+  }
   function closeHelper(){ $('helperOv').classList.remove('show'); }
   document.addEventListener('keydown',e=>{ if(e.key==='Escape' && $('helperOv').classList.contains('show')) closeHelper(); });
   function openVideo(){$('videoOv').classList.add('show');$('demoVideo').play();}
