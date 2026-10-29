@@ -1,5 +1,5 @@
 /* Cribbage Scorekeeper service worker */
-const CACHE = 'cribbage-v19';
+const CACHE = 'cribbage-v20';
 const SHELL = './';   // the app page is always stored under this one key
 const ASSETS = [
   './',
