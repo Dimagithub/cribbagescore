@@ -3,7 +3,7 @@
 > A free cribbage score keeper web app for two players or two teams. No ads, no sign-up, works offline, and installable on iPhone and Android. Scores stay on the user's device.
 
 ## App
-- [Cribbage Score Keeper](https://www.cribbagescoring.com/): the app. Enter pegging, hand and crib points; tracks the dealer, round history and skunks (loser under 91) and double skunks (under 61); plays to 121, 61 or a custom target; saves automatically.
+- [Cribbage Score Keeper](https://www.cribbagescoring.com/): the app. Enter pegging, hand and crib points; includes a free Score Helper (tap the 4 hand cards and the starter to see the total with a step-by-step explanation of fifteens, pairs, runs, flush and nobs), tracks the dealer, round history and skunks (loser under 91) and double skunks (under 61); plays to 121, 61 or a custom target; saves automatically.
 
 ## Cribbage rules and guides
 - [Cribbage scoring rules](https://www.cribbagescoring.com/cribbage-scoring): points for fifteens, pairs, runs, flushes and nobs, pegging scores, the 29 hand, and skunk lines, with worked examples and an FAQ.
