@@ -1910,6 +1910,9 @@
   function shUseScore(){
     const id=shState.fill; if(!id) return;
     setField(id,shState.total);
+    // the score has been used: the next time the helper opens it starts blank
+    shState.slots=[null,null,null,null,null]; shState.active=-1; shState.crib=false; shState.fill=null; shState.total=0;
+    shRender(true);
     closeHelper();
   }
   function closeHelper(){ $('helperOv').classList.remove('show'); }
